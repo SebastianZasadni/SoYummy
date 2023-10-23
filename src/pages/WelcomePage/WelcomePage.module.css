@@ -1,0 +1,69 @@
+.welcomePage {
+  background-image: image-set(
+    url("../../../public/assets/welcome-background.png") 1x,
+    url("../../../public/assets/welcome-background@2x.png") 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 768px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcomePage__Heading {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--main-white);
+}
+.welcomePage__Describe {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--main-white);
+  text-align: center;
+}
+.welcomePage__Nav {
+  display: flex;
+  gap: 12px;
+}
+.welcomePage__RegisterBtn {
+  color: var(--main-white);
+  padding: 12px 24px;
+  border-radius: 20px 40px;
+  background-color: var(--main-green);
+}
+.welcomePage__RegisterBtn:hover,
+.welcomePage__RegisterBtn:focus {
+  background-color: var(--secondary-black);
+}
+.welcomePage__LoginBtn:hover,
+.welcomePage__LoginBtn:focus {
+  background-color: var(--main-green);
+  border: none;
+  padding: 14px 26px;
+}
+.welcomePage__LoginBtn {
+  color: var(--main-white);
+  padding: 12px 24px;
+  border: 2px solid var(--main-white);
+  border-radius: 20px 40px;
+}
+@media screen and (min-width: 768px) {
+  .welcomePage {
+    max-width: 1280px;
+    width: 100%;
+    background-image: image-set(
+      url("../../../public/assets/welcome-background_tablet.png") 1x,
+      url("../../../public/assets/welcome-background_tablet@2x.png") 2x
+    );
+  }
+}
+@media screen and (min-width: 1280px) {
+  .welcomePage {
+    width: 100%;
+    background-image: url("../../../public/assets/welcome-background_desktop.png");
+  }
+}
