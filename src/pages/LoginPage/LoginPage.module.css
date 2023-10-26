@@ -1,0 +1,51 @@
+.loginPage__Wrapper {
+  width: 100%;
+  max-width: 768px;
+  height: 100vh;
+  background-image: url("/assets/auth-background-top.png"),
+    url("/assets/auth-background-bottom.png");
+  background-repeat: no-repeat;
+  background-position: center 87px, center 322px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px;
+}
+.loginPage__RegisterLink {
+  font-size: 14px;
+  line-height: 21px;
+  text-decoration: underline;
+  color: var(--main-white);
+  margin-top: 18px;
+  opacity: 0.7;
+}
+.loginPage__RegisterLink:hover,
+.loginPage__RegisterLink:focus{
+  opacity: 1;
+}
+@media screen and (min-width: 768px) {
+  .loginPage__Wrapper {
+    width: 100%;
+    max-width: 768px;
+    height: 100vh;
+    background-image: url("/assets/auth-background-top_tablet.png"),
+      url("/assets/auth-background-bottom_tablet.png");
+    background-repeat: no-repeat;
+    background-position: center 96px, center 418px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .loginPage__Wrapper {
+    max-width: 100%;
+    padding: 0;
+    height: 100vh;
+    background-image: url("/assets/auth-background-top_desktop.png"),
+      url("/assets/auth-background-bottom_desktop.png");
+    background-size: 532px 468px, 100%;
+    background-repeat: no-repeat;
+    background-position: 113px center, bottom center;
+  }
+  .loginPage__RegisterLink {
+    margin-left: 650px;
+  }
+}

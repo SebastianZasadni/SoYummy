@@ -1,0 +1,117 @@
+.registerForm {
+  height: 350px;
+  background-color: var(--third-black);
+  border-radius: 30px;
+  margin-top: 305px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 28px;
+}
+.registerForm__Heading {
+  color: var(--main-white);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 22px;
+}
+.registerForm__InputBox {
+  height: 159px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0px;
+}
+.registerForm__Inputs {
+  display: block;
+  background-color: var(--third-black);
+  outline: none;
+  border: 1px solid var(--main-white);
+  height: 45px;
+  color: var(--main-white);
+  border-radius: 10px;
+  width: 100%;
+  padding-left: 50px;
+  font-size: 18px;
+  line-height: 27px;
+  opacity: 0.7;
+}
+.registerForm__Inputs::placeholder {
+  color: var(--main-white);
+}
+.registerForm__Label {
+  position: relative;
+  display: flex;
+  margin: 0;
+  margin-left: -18px;
+}
+.icons {
+  width: 24px;
+  height: 24px;
+  stroke: var(--main-white);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  top: 15px;
+  left: 40px;
+}
+.iconEmail {
+  top: 17px;
+}
+.registerForm__Inputs:focus,
+.registerForm__Inputs:hover {
+  opacity: 1;
+}
+.registerForm__Button {
+  margin-top: 28px;
+  background-color: var(--main-green);
+  color: var(--main-white);
+  width: 279px;
+  height: 45px;
+  font-size: 16px;
+  line-height: 18px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+}
+.registerForm__Button:focus,
+.registerForm__Button:hover {
+  background-color: var(--main-black);
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .icons {
+    top: 20px;
+  }
+  .iconEmail {
+    top: 22px;
+  }
+  .registerForm {
+    margin-top: 443px;
+    height: 481px;
+    padding: 0px 50px;
+  }
+  .registerForm__Heading {
+    margin-top: 32px;
+  }
+  .registerForm__InputBox {
+    width: 100%;
+    height: 225px;
+    gap: 24px;
+  }
+  .registerForm__Inputs {
+    height: 56px;
+  }
+  .registerForm__Button {
+    width: 400px;
+    height: 56px;
+    margin-top: 50px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .registerForm {
+    margin: 0;
+    margin-top: 122px;
+    margin-left: 650px;
+  }
+}

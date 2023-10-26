@@ -3,10 +3,10 @@
   --main-white: #fafafa;
   --main-black: #1e1f28;
   --secondary-black: #22252a;
+  --third-black: #2a2c36;
   --main-grey: #d9d9d9;
   --primary-font: "Poppins";
 }
-
 body {
   font-family: "Poppins";
   margin: 0;

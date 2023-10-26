@@ -1,7 +1,7 @@
-.welcomePage {
+.welcomePage__Wrapper {
   background-image: image-set(
-    url("../../../public/assets/welcome-background.png") 1x,
-    url("../../../public/assets/welcome-background@2x.png") 2x
+    url("/assets/welcome-background.jpg") 1x,
+    url("/assets/welcome-background@2x.jpg") 2x
   );
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,18 +52,18 @@
   border-radius: 20px 40px;
 }
 @media screen and (min-width: 768px) {
-  .welcomePage {
+  .welcomePage__Wrapper {
     max-width: 1280px;
     width: 100%;
     background-image: image-set(
-      url("../../../public/assets/welcome-background_tablet.png") 1x,
-      url("../../../public/assets/welcome-background_tablet@2x.png") 2x
+      url("/assets/welcome-background_tablet.jpg") 1x,
+      url("/assets/welcome-background_tablet@2x.jpg") 2x
     );
   }
 }
 @media screen and (min-width: 1280px) {
-  .welcomePage {
+  .welcomePage__Wrapper {
     width: 100%;
-    background-image: url("../../../public/assets/welcome-background_desktop.png");
+    background-image: url("/assets/welcome-background_desktop.jpg");
   }
 }
