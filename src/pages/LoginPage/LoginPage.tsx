@@ -7,7 +7,7 @@ export const LoginPage = () => {
   return (
     <div className={css.loginPage__Wrapper}>
       <LoginForm />
-      <NavLink to="/login" className={css.loginPage__RegisterLink}>
+      <NavLink to="/register" className={css.loginPage__RegisterLink}>
         Registration
       </NavLink>
     </div>

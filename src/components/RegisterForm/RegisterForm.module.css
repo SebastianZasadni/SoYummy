@@ -30,7 +30,7 @@
   color: var(--main-white);
   border-radius: 10px;
   width: 100%;
-  padding-left: 50px;
+  padding-left: 40px;
   font-size: 18px;
   line-height: 27px;
   opacity: 0.7;
@@ -42,20 +42,43 @@
   position: relative;
   display: flex;
   margin: 0;
-  margin-left: -18px;
 }
 .icons {
   width: 24px;
   height: 24px;
   stroke: var(--main-white);
-  position: relative;
+  position: absolute;
   margin: 0;
   padding: 0;
   top: 15px;
-  left: 40px;
+  left: 14px;
 }
 .iconEmail {
   top: 17px;
+}
+.iconError {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 16px;
+  right: 19px;
+  display: none;
+}
+.iconSuccess {
+  display: none;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 16px;
+  right: 19px;
+}
+.iconLittleSecure {
+  display: none;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 16px;
+  right: 19px;
 }
 .registerForm__Inputs:focus,
 .registerForm__Inputs:hover {
@@ -78,6 +101,15 @@
   background-color: var(--main-black);
   border: none;
 }
+.validation {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 21px;
+  display: none;
+  position: absolute;
+  top: 100%;
+}
 
 @media screen and (min-width: 768px) {
   .icons {
@@ -86,9 +118,27 @@
   .iconEmail {
     top: 22px;
   }
+  .iconError {
+    width: 20px;
+    height: 20px;
+    top: 19px;
+    right: 19px;
+  }
+  .iconSuccess {
+    width: 20px;
+    height: 20px;
+    top: 19px;
+    right: 19px;
+  }
+  .iconLittleSecure {
+    width: 20px;
+    height: 20px;
+    top: 19px;
+    right: 19px;
+  }
   .registerForm {
     margin-top: 443px;
-    height: 481px;
+    height: 484px;
     padding: 0px 50px;
   }
   .registerForm__Heading {
@@ -105,7 +155,7 @@
   .registerForm__Button {
     width: 400px;
     height: 56px;
-    margin-top: 50px;
+    margin-top: 40px;
   }
 }
 @media screen and (min-width: 1280px) {

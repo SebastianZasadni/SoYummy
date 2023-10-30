@@ -1,21 +1,78 @@
+import { useState, useRef } from "react";
+import Joi from "joi";
 import cx from "classnames";
 import css from "./loginForm.module.css";
+import { validationCorrect, validationError } from "../../utils/validation";
 
 export const LoginForm = () => {
+  const [emailValidation, setEmailValidation] = useState("");
+
+  const iconErrorEmailRef = useRef(null);
+  const iconSuccessEmailRef = useRef(null);
+  const iconEmailRef = useRef(null);
+  const validationEmailRef = useRef(null);
+  const inputEmailRef = useRef(null);
+
+  const emailSchema = Joi.object({
+    email: Joi.string().email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net", "pl"] },
+    }),
+  });
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const email = event.target.value;
+    const validateEmail = emailSchema.validate({ email });
+    if (validateEmail.error) {
+      validationError(
+        iconErrorEmailRef,
+        iconSuccessEmailRef,
+        iconEmailRef,
+        validationEmailRef,
+        inputEmailRef
+      );
+      setEmailValidation("Enter a valid email");
+    } else {
+      validationCorrect(
+        iconSuccessEmailRef,
+        iconErrorEmailRef,
+        iconEmailRef,
+        validationEmailRef,
+        inputEmailRef
+      );
+      setEmailValidation("Your email is valid");
+    }
+  };
+
   return (
     <form className={css.loginForm}>
       <h2 className={css.loginForm__Heading}>Sign In</h2>
       <div className={css.loginForm__InputBox}>
         <label className={css.loginForm__Label}>
-          <svg className={cx(css.icons, css.iconEmail)}>
+          <svg ref={iconEmailRef} className={cx(css.icons, css.iconEmail)}>
             <use href="/assets/icons.svg#icon-email"></use>
           </svg>
           <input
+            ref={inputEmailRef}
             type="email"
             placeholder="Email"
             name="email"
             className={css.loginForm__Inputs}
+            onChange={handleEmailChange}
           />
+          <img
+            src="/assets/icon-error.png"
+            className={css.iconError}
+            ref={iconErrorEmailRef}
+          />
+          <img
+            src="/assets/icon-success.png"
+            className={css.iconSuccess}
+            ref={iconSuccessEmailRef}
+          />
+          <p ref={validationEmailRef} className={css.validation}>
+            {emailValidation}
+          </p>
         </label>
         <label className={css.loginForm__Label}>
           <svg className={cx(css.icons, css.iconPassword)}>

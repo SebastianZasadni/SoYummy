@@ -63,7 +63,8 @@
 }
 @media screen and (min-width: 1280px) {
   .welcomePage__Wrapper {
-    width: 100%;
+    max-width: 100%;
     background-image: url("/assets/welcome-background_desktop.jpg");
+    background-size: cover;
   }
 }
