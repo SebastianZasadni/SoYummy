@@ -1,5 +1,5 @@
 .loginForm {
-  height: 350px;
+  height: 315px;
   background-color: var(--third-black);
   border-radius: 30px;
   margin-top: 305px;
@@ -15,11 +15,11 @@
   margin-top: 22px;
 }
 .loginForm__InputBox {
-  height: 159px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 0px;
+  margin-top: 40px;
 }
 .loginForm__Inputs {
   display: block;
@@ -124,7 +124,7 @@
   }
   .loginForm {
     margin-top: 443px;
-    height: 484px;
+    height: 419px;
     padding: 0px 50px;
   }
   .loginForm__Heading {
@@ -132,7 +132,6 @@
   }
   .loginForm__InputBox {
     width: 100%;
-    height: 225px;
     gap: 24px;
   }
   .loginForm__Inputs {

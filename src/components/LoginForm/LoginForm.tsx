@@ -12,6 +12,7 @@ export const LoginForm = () => {
   const iconEmailRef = useRef(null);
   const validationEmailRef = useRef(null);
   const inputEmailRef = useRef(null);
+  const iconLittleSecureRef = useRef(null);
 
   const emailSchema = Joi.object({
     email: Joi.string().email({
@@ -27,6 +28,7 @@ export const LoginForm = () => {
       validationError(
         iconErrorEmailRef,
         iconSuccessEmailRef,
+        iconLittleSecureRef,
         iconEmailRef,
         validationEmailRef,
         inputEmailRef
@@ -36,6 +38,7 @@ export const LoginForm = () => {
       validationCorrect(
         iconSuccessEmailRef,
         iconErrorEmailRef,
+        iconLittleSecureRef,
         iconEmailRef,
         validationEmailRef,
         inputEmailRef
