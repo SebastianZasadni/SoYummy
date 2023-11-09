@@ -16,3 +16,13 @@ body {
 a {
   text-decoration: none;
 }
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+button{
+  cursor: pointer;
+}

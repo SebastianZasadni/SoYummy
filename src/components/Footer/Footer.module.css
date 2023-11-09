@@ -1,0 +1,104 @@
+.footerContainer {
+  width: 100%;
+  max-width: 768px;
+}
+.footerWrapper {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-black);
+  padding: 28px 0px 18px 0px;
+}
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+}
+.footerLogoIcon {
+  width: 32px;
+  height: 32px;
+}
+.footerLogoText {
+  color: var(--main-white);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+}
+.footerBottomBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto;
+}
+.footerTermsBox {
+  padding: 28px 73px;
+  font-size: 10px;
+  line-height: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  color: var(--secondary-black);
+  opacity: 50%;
+}
+.footerTermsLeft {
+  font-weight: 500;
+}
+.featuresOfAppList {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .footerContainer {
+    max-width: 1279px;
+  }
+  .footerWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 50px 94px 24px 32px;
+    justify-content: space-around;
+  }
+  .footerLogoIcon {
+    width: 44px;
+    height: 44px;
+  }
+  .footerLogoText {
+    font-size: 28px;
+    line-height: 28px;
+  }
+  .featuresOfAppList,
+  .featuresOfAppListItem {
+    list-style: disc;
+  }
+  .featuresOfAppList {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .featuresOfAppListItem {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--main-white);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footerContainer {
+    max-width: 100%;
+  }
+  .footerWrapper {
+    align-items: flex-start;
+    position: relative;
+    justify-content: space-between;
+    padding: 64px 100px 110px 64px;
+  }
+  .featuresOfAppListItem {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .footerBottomBox {
+    margin: 0;
+  }
+}

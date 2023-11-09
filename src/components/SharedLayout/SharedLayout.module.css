@@ -1,0 +1,6 @@
+.sharedLayoutWrapper {
+  background-image: url("/assets/layout-background-middle_mobile.png"),
+    url("/assets/layout-background-bottom_mobile@2x.png");
+  background-repeat: no-repeat;
+  background-position: bottom center, bottom right;
+}

@@ -1,0 +1,15 @@
+.navList {
+  margin: 32px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.navListLink {
+  color: var(--main-white);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}

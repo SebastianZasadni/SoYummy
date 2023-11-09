@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 20px;
 }
 .loginPage__RegisterLink {
   font-size: 14px;
@@ -20,7 +19,7 @@
   opacity: 0.7;
 }
 .loginPage__RegisterLink:hover,
-.loginPage__RegisterLink:focus{
+.loginPage__RegisterLink:focus {
   opacity: 1;
 }
 @media screen and (min-width: 768px) {

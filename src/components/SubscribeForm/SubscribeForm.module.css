@@ -1,0 +1,118 @@
+.footerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.formLabel {
+  position: relative;
+}
+.newsletterHeading,
+.newsletterDescription {
+  display: none;
+}
+.formInput {
+  opacity: 0.7;
+  outline: none;
+  display: block;
+  border: 1px solid var(--main-white);
+  width: 204px;
+  height: 38px;
+  border-radius: 6px;
+  background-color: var(--secondary-black);
+  padding-left: 42px;
+}
+.formIconEmail {
+  width: 24px;
+  height: 24px;
+  stroke: var(--main-white);
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 15px;
+  left: 14px;
+  position: absolute;
+}
+.iconError {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 13px;
+  right: 19px;
+  display: none;
+}
+.iconSuccess {
+  display: none;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 13px;
+  right: 19px;
+}
+.formInput:hover,
+.formInput:focus {
+  opacity: 1;
+}
+.formInput::placeholder {
+  color: var(--main-white);
+}
+.formButton {
+  border: none;
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--main-white);
+  border-radius: 6px;
+  padding: 11px 67px;
+  background-color: var(--main-green);
+}
+.formButton:disabled {
+  cursor: not-allowed;
+  opacity: 50%;
+}
+@media screen and (min-width: 768px) {
+  .footerForm {
+    flex-direction: row;
+    margin-top: 72px;
+  }
+  .formButton {
+    padding: 16px 50px;
+  }
+  .formInput {
+    width: 259px;
+    height: 50px;
+  }
+  .formIconEmail,
+  .iconError,
+  .iconSuccess {
+    top: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footerForm {
+    margin: 0;
+    flex-direction: column;
+  }
+  .formInput {
+    width: 338px;
+    height: 59px;
+  }
+  .formButton {
+    padding: 21px, 138px, 21px, 138px;
+  }
+  .newsletterHeading {
+    margin: 0;
+    display: block;
+    color: var(--main-white);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .newsletterDescription {
+    margin: 0;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 18px;
+    display: block;
+    color: var(--main-white);
+  }
+}

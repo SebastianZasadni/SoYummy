@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 20px;
 }
 .registerPage__LoginLink {
   font-size: 14px;

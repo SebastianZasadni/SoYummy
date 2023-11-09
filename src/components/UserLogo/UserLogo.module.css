@@ -1,0 +1,16 @@
+.userInfo {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.userLogo {
+  width: 34px;
+  height: 34px;
+}
+.userName {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20.4px;
+}
