@@ -4,12 +4,15 @@
   flex-direction: column;
   gap: 14px;
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 .navListLink {
   color: var(--main-white);
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+}
+@media screen and (min-width: 768px) {
+  .navList {
+    margin: 0;
+  }
 }

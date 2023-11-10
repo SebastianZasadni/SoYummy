@@ -7,6 +7,9 @@
   font-size: 12px;
   line-height: 18px;
   padding: 8px;
+  position: relative;
+  bottom: 320px;
+  left: 30%;
 }
 .greenText {
   color: var(--main-green);
@@ -37,6 +40,8 @@
     font-size: 14px;
     line-height: 18px;
     padding: 12px;
+    bottom: 350px;
+    left: 60%;
   }
 }
 @media screen and (min-width: 1279px) {
@@ -44,5 +49,7 @@
     width: 298px;
     height: 114px;
     line-height: 20px;
+    bottom: 665px;
+    left: 75%;
   }
 }

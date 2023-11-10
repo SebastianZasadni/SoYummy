@@ -11,6 +11,7 @@ body {
   font-family: "Poppins";
   margin: 0;
   padding: 0;
+  background-color: var(--main-white);
 }
 
 a {
@@ -23,6 +24,6 @@ li {
   margin: 0;
   list-style-type: none;
 }
-button{
+button {
   cursor: pointer;
 }

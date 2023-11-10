@@ -95,6 +95,12 @@
   .formInput {
     width: 338px;
     height: 59px;
+    margin-top: 28px;
+  }
+  .formIconEmail,
+  .iconError,
+  .iconSuccess {
+    top: 53px;
   }
   .formButton {
     padding: 21px, 138px, 21px, 138px;

@@ -1,6 +1,13 @@
 .footerContainer {
   width: 100%;
   max-width: 768px;
+  position: relative;
+}
+.middleBackgroundImg {
+  display: block;
+  position: absolute;
+  top: -270px;
+  z-index: -1;
 }
 .footerWrapper {
   margin-top: 300px;
@@ -54,6 +61,9 @@
   .footerContainer {
     max-width: 1279px;
   }
+  .middleBackgroundImg {
+    top: -400px;
+  }
   .footerWrapper {
     flex-direction: row;
     flex-wrap: wrap;
@@ -87,6 +97,9 @@
 @media screen and (min-width: 1280px) {
   .footerContainer {
     max-width: 100%;
+  }
+  .middleBackgroundImg {
+    top: -550px;
   }
   .footerWrapper {
     align-items: flex-start;

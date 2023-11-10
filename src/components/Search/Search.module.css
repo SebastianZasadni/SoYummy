@@ -1,0 +1,135 @@
+.sectionSearch {
+  max-width: 768px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/assets/search-background-topleft_mobile.png"),
+    url("/assets/search-background-center_mobile.png"),
+    url("/assets/search-background-bottomright_mobile.png"),
+    url("/assets/search-background-centerright_mobile.png");
+  background-repeat: no-repeat;
+  background-position: left 0px, center 258px, right 5px, right 103px;
+  padding-bottom: 63px;
+}
+.sectionSearchHeading {
+  margin: 0;
+  margin-top: 68px;
+  font-size: 60px;
+  line-height: 60px;
+  color: var(--secondary-black);
+  font-weight: 500;
+}
+.green {
+  color: var(--main-green);
+}
+.sectionSearchDescription {
+  width: 248px;
+  height: 72px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #23262a;
+  margin-top: 14px;
+}
+.centerImage {
+  display: block;
+  margin-top: 44px;
+}
+.sectionSearchForm {
+  margin-top: 364px;
+  display: flex;
+  width: 295px;
+}
+.formInput {
+  outline: none;
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+  width: 235px;
+  height: 52px;
+  position: absolute;
+  border-radius: 24px 44px;
+  padding-left: 32px;
+  color: #bdbdbd;
+  font-size: 12px;
+  line-height: 18px;
+}
+.formButton {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 17px 31px;
+  border-radius: 24px 44px;
+  background-color: #22252a;
+  position: relative;
+  left: 60%;
+  color: var(--main-white);
+}
+@media screen and (min-width: 768px) {
+  .sectionSearch {
+    max-width: 1280px;
+    align-items: flex-start;
+    padding-bottom: 267px;
+    background-image: url("/assets/search-background-topleft_tablet.png"),
+      url("/assets/search-background-center_tablet.png"),
+      url("/assets/search-background-bottomright_tablet.png"),
+      url("/assets/search-background-centerright_tablet.png");
+    background-position: left 0px, right 95px, right 5px, right 103px;
+  }
+  .sectionSearchHeading {
+    margin-top: 140px;
+    font-size: 72px;
+    line-height: 72px;
+    margin-left: 32px;
+  }
+  .sectionSearchDescription {
+    margin-left: 32px;
+    margin-top: 24px;
+    width: 362px;
+    height: 54px;
+  }
+  .sectionSearchForm {
+    margin-left: 32px;
+    margin-top: 32px;
+    width: 369px;
+  }
+  .formButton {
+    padding: 18px 52px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sectionSearch {
+    max-width: 100%;
+    height: 800px;
+    top: -70px;
+    background-image: url("/assets/search-background-topleft_desktop.png"),
+      url("/assets/search-background-center_desktop.png"),
+      url("/assets/search-background-bottomright_desktop.png"),
+      url("/assets/search-background-centerright_desktop.png");
+    background-position: left top, 85% 62px, right top, right top;
+  }
+  .sectionSearchHeading {
+    font-size: 100px;
+    line-height: 100px;
+    margin-left: 100px;
+  }
+  .sectionSearchDescription {
+    font-size: 18px;
+    line-height: 24px;
+    margin-left: 100px;
+  }
+  .sectionSearchForm {
+    margin-top: 50px;
+    width: 510px;
+    margin-left: 100px;
+  }
+  .formInput {
+    width: 400px;
+    height: 71px;
+  }
+  .formButton {
+    padding: 26px 52px;
+    left: 70%;
+    width: 161px;
+  }
+}

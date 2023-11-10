@@ -1,6 +1,15 @@
 .sharedLayoutWrapper {
-  background-image: url("/assets/layout-background-middle_mobile.png"),
-    url("/assets/layout-background-bottom_mobile@2x.png");
+  background-image: url("/assets/layout-background-bottom_mobile.png");
   background-repeat: no-repeat;
-  background-position: bottom center, bottom right;
+  background-position: right 100%;
+}
+@media screen and (min-width: 768px) {
+  .sharedLayoutWrapper {
+    background-image: url("/assets/layout-background-bottom_tablet.png");
+  }
+}
+@media screen and (min-width: 1279px) {
+  .sharedLayoutWrapper {
+    background-image: url("/assets/layout-background-bottom_desktop.png");
+  }
 }
