@@ -3,16 +3,26 @@ import Joi from "joi";
 import cx from "classnames";
 import css from "./loginForm.module.css";
 import { validationCorrect, validationError } from "../../utils/validation";
+import { FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
+import { AppDispatch } from "../../redux/store";
+
+export interface Credentials {
+  email: string;
+  password: string;
+}
 
 export const LoginForm = () => {
   const [emailValidation, setEmailValidation] = useState("");
-
   const iconErrorEmailRef = useRef(null);
   const iconSuccessEmailRef = useRef(null);
   const iconEmailRef = useRef(null);
   const validationEmailRef = useRef(null);
   const inputEmailRef = useRef(null);
   const iconLittleSecureRef = useRef(null);
+
+  const dispatch: AppDispatch = useDispatch();
 
   const emailSchema = Joi.object({
     email: Joi.string().email({
@@ -47,8 +57,19 @@ export const LoginForm = () => {
     }
   };
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const credentials: Credentials = {
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    };
+    await dispatch(login(credentials));
+    form.reset();
+  };
+
   return (
-    <form className={css.loginForm}>
+    <form className={css.loginForm} onSubmit={handleSubmit}>
       <h2 className={css.loginForm__Heading}>Sign In</h2>
       <div className={css.loginForm__InputBox}>
         <label className={css.loginForm__Label}>
@@ -89,7 +110,7 @@ export const LoginForm = () => {
           />
         </label>
       </div>
-      <button className={css.loginForm__Button} type="button">
+      <button className={css.loginForm__Button} type="submit">
         Sign in
       </button>
     </form>
