@@ -1,6 +1,10 @@
 import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations";
+import { AppDispatch } from "../../redux/store";
 import Joi from "joi";
 import { joiPasswordExtendCore } from "joi-password";
+import { FormEvent } from "react";
 import cx from "classnames";
 import css from "./RegisterForm.module.css";
 import {
@@ -8,6 +12,12 @@ import {
   validationError,
   validationLittleSecure,
 } from "../../utils/validation";
+
+export interface CredentialsRegister {
+  email: string;
+  name: string;
+  password: string;
+}
 
 const joiPassword = Joi.extend(joiPasswordExtendCore);
 
@@ -31,6 +41,8 @@ export const RegisterForm = () => {
   const iconPasswordRef = useRef(null);
   const validationPasswordRef = useRef(null);
   const inputPasswordRef = useRef(null);
+
+  const dispatch: AppDispatch = useDispatch();
 
   const emailSchema = Joi.object({
     email: Joi.string().email({
@@ -144,8 +156,20 @@ export const RegisterForm = () => {
     }
   };
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const credentials: CredentialsRegister = {
+      email: form.email.value,
+      name: form.name.value,
+      password: form.password.value,
+    };
+    await dispatch(register(credentials));
+    form.reset();
+  };
+
   return (
-    <form className={css.registerForm}>
+    <form className={css.registerForm} onSubmit={handleSubmit}>
       <h2 className={css.registerForm__Heading}>Registration</h2>
       <div className={css.registerForm__InputBox}>
         <label className={css.registerForm__Label}>
@@ -233,7 +257,7 @@ export const RegisterForm = () => {
           </p>
         </label>
       </div>
-      <button className={css.registerForm__Button} type="button">
+      <button className={css.registerForm__Button} type="submit">
         Sign up
       </button>
     </form>

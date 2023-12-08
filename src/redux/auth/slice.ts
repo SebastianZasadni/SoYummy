@@ -50,9 +50,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(register.fulfilled, (state: authIntitialStateType, action) => {
-        state.user.email = action.payload.email;
-        state.user.id = action.payload._id;
+      .addCase(register.fulfilled, (state: authIntitialStateType) => {
         state.error = null;
         Notiflix.Loading.remove();
       })

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Joi from "joi";
 import cx from "classnames";
 import css from "./loginForm.module.css";
@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import { AppDispatch } from "../../redux/store";
 
-export interface Credentials {
+export interface CredentialsLogin {
   email: string;
   password: string;
 }
@@ -60,9 +60,9 @@ export const LoginForm = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const credentials: Credentials = {
-      email: form.elements.email.value,
-      password: form.elements.password.value,
+    const credentials: CredentialsLogin = {
+      email: form.email.value,
+      password: form.password.value,
     };
     await dispatch(login(credentials));
     form.reset();

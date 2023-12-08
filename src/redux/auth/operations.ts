@@ -1,7 +1,9 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Notify } from "notiflix";
-import { Credentials } from "../../components/LoginForm/LoginForm";
+import { CredentialsLogin } from "../../components/LoginForm/LoginForm";
+import { CredentialsRegister } from "../../components/RegisterForm/RegisterForm";
+import { useNavigate } from "react-router";
 
 interface AuthStateType {
   auth: {
@@ -21,9 +23,9 @@ const clearAuthHeader = () => {
 
 export const register = createAsyncThunk(
   "auth/register",
-  async (credentials, thunkAPI) => {
+  async (credentials: CredentialsRegister, thunkAPI) => {
     try {
-      const response = await axios.post("/users/register", credentials);
+      const response = await axios.post("/users/signup", credentials);
       Notify.success("Registration successful.");
       return response.data;
     } catch (error: any) {
@@ -37,7 +39,7 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
   "auth/login",
-  async (credentials: Credentials, thunkAPI) => {
+  async (credentials: CredentialsLogin, thunkAPI) => {
     try {
       const response = await axios.post("/users/login", credentials);
       setAuthHeader(response.data.token);
