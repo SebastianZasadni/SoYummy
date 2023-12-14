@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./WelcomePage.module.css";
 
-export const WelcomePage = () => {
+const WelcomePage = () => {
   return (
     <div className={css.welcomePage__Wrapper}>
       <a href="/">
@@ -30,3 +30,5 @@ export const WelcomePage = () => {
     </div>
   );
 };
+
+export default WelcomePage;

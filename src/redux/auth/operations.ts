@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Notify } from "notiflix";
 import { CredentialsLogin } from "../../components/LoginForm/LoginForm";
 import { CredentialsRegister } from "../../components/RegisterForm/RegisterForm";
-import { useNavigate } from "react-router";
 
 interface AuthStateType {
   auth: {

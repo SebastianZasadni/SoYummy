@@ -39,15 +39,7 @@ const initialState: authIntitialStateType = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    importInfoData: (state) => state,
-    logoutSuccess: (state) => {
-      (state.token = null),
-        (state.error = null),
-        (state.isLoggedIn = false),
-        (state.user.email = null);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state: authIntitialStateType) => {
@@ -82,7 +74,6 @@ const authSlice = createSlice({
           state.user.email = action.payload.email;
           state.user.id = action.payload.id;
           state.user.username = action.payload.name;
-          state.token = action.payload.token;
           state.isLoggedIn = true;
           state.isRefreshing = false;
           state.error = null;

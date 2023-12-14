@@ -1,0 +1,20 @@
+.categoriesPageWrapper {
+  padding: 0px 16px;
+}
+.categoriesPageHeading {
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #001833;
+  margin-top: 50px;
+}
+.categoriesList {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+}
+.categoryTitle {
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 14px;
+}

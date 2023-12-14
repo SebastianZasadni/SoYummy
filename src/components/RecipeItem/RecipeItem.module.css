@@ -1,0 +1,35 @@
+.recipeBox {
+    position: relative;
+    width: 343px;
+    height: 323px;
+  }
+  .recipeImage {
+    width: 100%;
+    display: block;
+  }
+  .recipeTitle {
+    padding-left: 16px;
+    padding-top: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #3e4462;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 291px;
+    height: 36px;
+    position: absolute;
+    bottom: 5px;
+    left: 18px;
+  }
+  @media screen and (min-width: 768px) {
+    .recipeCategorie {
+        font-size: 44px;
+        line-height: 44px;
+      }
+      .recipeBox {
+        position: relative;
+        width: 336px;
+        height: 323px;
+      }
+  }

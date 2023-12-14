@@ -3,7 +3,7 @@ import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
 
 import css from "./RegisterPage.module.css";
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   return (
     <div className={css.registerPage__Wrapper}>
       <RegisterForm />
@@ -13,3 +13,5 @@ export const RegisterPage = () => {
     </div>
   );
 };
+
+export default RegisterPage;
