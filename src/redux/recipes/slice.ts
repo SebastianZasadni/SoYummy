@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCategoriesList, fetchRecipesMainPage } from "./operations";
+import { fetchCategoriesList, fetchRecipesMainPage, fetchRecipesByCategory } from "./operations";
 import Notiflix from "notiflix";
 
 export interface Ingredient {
@@ -73,7 +73,16 @@ const recipesSlice = createSlice({
         state.categories = action.payload;
         Notiflix.Loading.remove();
       })
-      .addCase(fetchCategoriesList.rejected, handleRejected);
+      .addCase(fetchCategoriesList.rejected, handleRejected)
+      .addCase(fetchRecipesByCategory.pending, handlePending)
+      .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipes = action.payload;
+        Notiflix.Loading.remove();
+      })
+      .addCase(fetchRecipesByCategory.rejected, handleRejected);
+
   },
 });
 

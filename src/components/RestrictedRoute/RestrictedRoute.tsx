@@ -14,3 +14,5 @@ export const RestrictedRoute = ({
 
   return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
 };
+
+

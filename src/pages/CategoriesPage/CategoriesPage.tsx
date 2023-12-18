@@ -1,7 +1,10 @@
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchCategoriesList } from "../../redux/recipes/operations";
+import { useParams } from "react-router-dom";
+import {
+  fetchCategoriesList,
+  fetchRecipesByCategory,
+} from "../../redux/recipes/operations";
 import { AppDispatch } from "../../redux/store";
 import css from "./CategoriesPage.module.css";
 import { selectCategories } from "../../redux/recipes/selectors";
@@ -9,10 +12,12 @@ import { selectCategories } from "../../redux/recipes/selectors";
 const CategoriesPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const categories = useSelector(selectCategories);
+  const { category } = useParams();
 
   useEffect(() => {
     dispatch(fetchCategoriesList());
-  }, [dispatch]);
+    // dispatch(fetchRecipesByCategory(category));
+  }, [dispatch, category]);
 
   return (
     <div className={css.categoriesPageWrapper}>

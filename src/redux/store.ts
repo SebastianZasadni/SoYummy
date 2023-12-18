@@ -32,7 +32,6 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions,
-        ignoredPaths: ["recipes.recipes.headers"],
       },
     }),
 });
