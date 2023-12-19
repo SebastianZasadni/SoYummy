@@ -1,23 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useSearchParams, NavLink } from "react-router-dom";
 import {
   fetchCategoriesList,
   fetchRecipesByCategory,
 } from "../../redux/recipes/operations";
 import { AppDispatch } from "../../redux/store";
 import css from "./CategoriesPage.module.css";
-import { selectCategories } from "../../redux/recipes/selectors";
+import { selectCategories, selectRecipes } from "../../redux/recipes/selectors";
+import { RecipeItem } from "../../components/RecipeItem/RecipeItem";
 
 const CategoriesPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch: AppDispatch = useDispatch();
+
   const categories = useSelector(selectCategories);
+  const recipes = useSelector(selectRecipes);
+
+  const page = searchParams.get("page") ?? "";
   const { category } = useParams();
 
   useEffect(() => {
     dispatch(fetchCategoriesList());
-    // dispatch(fetchRecipesByCategory(category));
-  }, [dispatch, category]);
+    dispatch(fetchRecipesByCategory({ category, page }));
+  }, [dispatch, category, page]);
 
   return (
     <div className={css.categoriesPageWrapper}>
@@ -26,7 +32,25 @@ const CategoriesPage = () => {
         {categories.map((category) => {
           return (
             <li className={css.categoriesListItem} key={category.thumb}>
-              <p className={css.categoryTitle}>{category.title}</p>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? `${css.categoryTitleActive}`
+                    : `${css.categoryTitle}`
+                }
+                to={`/category/${category.title.toLowerCase()}/?page=1`}
+              >
+                {category.title}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+      <ul className={css.recipesList}>
+        {recipes.map((recipe) => {
+          return (
+            <li className={css.recipesListItem} key={recipe._id}>
+              <RecipeItem recipe={recipe} />;
             </li>
           );
         })}

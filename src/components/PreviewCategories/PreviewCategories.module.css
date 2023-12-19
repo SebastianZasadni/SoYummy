@@ -14,10 +14,11 @@
   line-height: 28px;
   color: #001833;
 }
-.listButton {
-  display: block;
+.seeAllButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--main-green);
-  padding: 10px, 24px, 10px, 24px;
   border-radius: 6px;
   border: none;
   outline: none;
@@ -31,8 +32,8 @@
   width: 94px;
   height: 38px;
 }
-.listButton:hover,
-.listButton:focus {
+.seeAllButton:hover,
+.seeAllButton:focus {
   color: var(--secondary-black);
 }
 .otherCategoriesButton {

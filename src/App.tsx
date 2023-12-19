@@ -11,6 +11,7 @@ import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
+import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 
 const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
 // const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -27,35 +28,34 @@ const App = () => {
   return (
     <>
       <Routes>
-        {/* <Route
+        <Route
           index
-          path="/welcome"
+          path="welcome"
           element={
             <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
           }
-        /> */}
+        />
         <Route
-          path="/register"
+          path="register"
           element={
             <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
           }
         />
         <Route
-          path="/login"
+          path="login"
           element={
             <RestrictedRoute redirectTo="/main" component={<LoginPage />} />
           }
         />
         <Route
-        path="main"
           element={
             <ProtectedRoute redirectTo="/login" component={<SharedLayout />} />
           }
         >
-          <Route index element={<MainPage />} />
-          <Route path="categories" element={<CategoriesPage />} />
+          <Route path="main" index element={<MainPage />} />
+          <Route path="category/:category" element={<CategoriesPage />} />
+          <Route path="add" element={<AddRecipePage />} />
         </Route>
-
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </>

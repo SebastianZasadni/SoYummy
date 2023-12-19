@@ -1,37 +1,49 @@
 import { NavLink } from "react-router-dom";
 import { Logo } from "../Logo/Logo";
 import css from "./Navigation.module.css";
+import { setIsMenuMobile } from "../../redux/global/slice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 
 const MenuList = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setIsMenuMobile(false));
+  };
   return (
     <ul className={css.menuList}>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink}>
+        <NavLink
+          to={`/category/beef/?page=1`}
+          className={css.menuListLink}
+          onClick={handleClick}
+        >
           Categories
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink}>
+        <NavLink to="/add" className={css.menuListLink} onClick={handleClick}>
           Add recipes
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink}>
+        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
           My recipes
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink}>
+        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
           Favorites
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink}>
+        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
           Shopping list
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink}>
+        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
           <img
             src="/assets/icon-search.png"
             alt="loupe"
@@ -45,6 +57,11 @@ const MenuList = () => {
 };
 
 export const OthersNavigation = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setIsMenuMobile(false));
+  };
   return (
     <div className={css.othersNavigationWrapper}>
       <div className={css.menuHeader}>
@@ -53,6 +70,7 @@ export const OthersNavigation = () => {
           srcSet="/assets/icon-exit.png 1x, /assets/icon-exit@2x.png 2x"
           alt="exit"
           className={css.iconExit}
+          onClick={handleClick}
         />
       </div>
       <MenuList />

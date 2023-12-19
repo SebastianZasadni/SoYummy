@@ -12,9 +12,51 @@
   display: flex;
   gap: 28px;
   overflow-x: auto;
-}
+  }
 .categoryTitle {
   color: #e0e0e0;
   font-size: 14px;
   line-height: 14px;
+}
+.categoryTitleActive {
+  color: var(--main-green);
+  font-size: 20px;
+  line-height: 20px;
+}
+.recipesList {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 28px;
+}
+@media screen and (min-width: 768px) {
+  .categoriesPageHeading {
+    margin-top: 72px;
+  }
+  .categoriesList {
+    margin-top: 60px;
+    gap: 55px;
+  }
+  .categoryTitle {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .recipesList {
+    margin-top: 50px;
+    gap: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .categoriesPageWrapper {
+    padding: 0px 99px;
+  }
+  .categoriesPageHeading {
+    margin-top: 100px;
+  }
+  .categoriesList {
+    margin-top: 100px;
+  }
 }

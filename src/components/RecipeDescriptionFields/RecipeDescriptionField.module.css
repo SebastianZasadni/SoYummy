@@ -1,0 +1,51 @@
+.descriptionFields {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000;
+}
+input {
+  border-style: none none solid none;
+  border-color: #e0e0e0;
+  outline: none;
+}
+.imageLabel {
+  margin-top: 72px;
+  width: 279px;
+  height: 268px;
+  background-color: var(--main-green);
+  justify-content: center;
+  align-items: center;
+}
+.imageInput {
+  display: none;
+}
+.imageLabelIcon {
+  width: 64px;
+  height: 64px;
+}
+.categoryLabel,
+.cookingTimeLabel {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-style: none none solid none;
+  border-color: #e0e0e0;
+  padding-bottom: 19px;
+}
+.select {
+  width: 150px;
+  outline: none;
+  color: #000000;
+  font-size: 12px;
+  line-height: 12px;
+  max-height: 100px;
+}

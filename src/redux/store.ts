@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { recipesReducer } from "./recipes/slice";
+import { globalReducer } from "./global/slice";
 
 const ignoredActions = [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER];
 
@@ -24,6 +25,7 @@ const authPersistConfig = {
 const rootReducer = {
   auth: persistReducer(authPersistConfig, authReducer),
   recipes: recipesReducer,
+  global: globalReducer,
 };
 
 export const store = configureStore({

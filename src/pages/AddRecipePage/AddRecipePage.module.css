@@ -1,0 +1,16 @@
+.addRecipePageHeading {
+  color: #001833;
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: 600;
+  margin-top: 50px;
+}
+.addRecipePageWrapper {
+  padding: 0px 16px;
+}
+/* @media screen and (min-width: 768px){
+
+}
+@media screen and (min-width: 1280px){
+    
+} */

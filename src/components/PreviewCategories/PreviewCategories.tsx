@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import css from "./PreviewCategories.module.css";
 import { selectRecipes } from "../../redux/recipes/selectors";
 import { Recipe } from "../../redux/recipes/slice";
 import { RecipeItem } from "../RecipeItem/RecipeItem";
+import { NavLink } from "react-router-dom";
 
 export const PreviewCategories = () => {
+  
   const recipes = useSelector(selectRecipes);
   const breakfastRecipes = recipes.filter(
     (recipe: Recipe) => recipe.category.toLowerCase() === "breakfast"
@@ -27,40 +30,46 @@ export const PreviewCategories = () => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>
-        <button type="button" className={css.listButton}>
+        <NavLink to="/category/breakfast?page=1" className={css.seeAllButton}>
           See all
-        </button>
+        </NavLink>
         <p className={css.recipeCategorie}>Miscellaneous</p>
         <li className={css.mainPageRecipesListItem}>
           {miscellaneousRecipes.map((recipe: Recipe) => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>
-        <button type="button" className={css.listButton}>
+        <NavLink
+          to="/category/miscellaneous?page=1"
+          className={css.seeAllButton}
+        >
           See all
-        </button>
+        </NavLink>
         <p className={css.recipeCategorie}>Chicken</p>
         <li className={css.mainPageRecipesListItem}>
           {chickenRecipes.map((recipe: Recipe) => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>
-        <button type="button" className={css.listButton}>
+        <NavLink to="/category/chicken?page=1" className={css.seeAllButton}>
           See all
-        </button>
+        </NavLink>
         <p className={css.recipeCategorie}>Desserts</p>
         <li className={css.mainPageRecipesListItem}>
           {dessertsRecipes.map((recipe: Recipe) => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>
-        <button type="button" className={css.listButton}>
+        <NavLink to="/category/desserts?page=1" className={css.seeAllButton}>
           See all
-        </button>
+        </NavLink>
       </ul>
-      <button type="button" className={css.otherCategoriesButton}>
+      <NavLink
+        to="/category/beef/?page=1"
+        className={css.otherCategoriesButton}
+      >
         Other categories
-      </button>
+      </NavLink>
     </div>
   );
 };

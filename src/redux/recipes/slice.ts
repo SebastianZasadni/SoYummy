@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCategoriesList, fetchRecipesMainPage, fetchRecipesByCategory } from "./operations";
-import Notiflix from "notiflix";
+import {
+  fetchCategoriesList,
+  fetchRecipesMainPage,
+  fetchRecipesByCategory,
+} from "./operations";
 
 export interface Ingredient {
   _id: string;
@@ -44,7 +47,6 @@ const initialState: RecipesIntitialState = {
 
 const handlePending = (state: RecipesIntitialState) => {
   state.isLoading = true;
-  Notiflix.Loading.standard("Loading...");
 };
 
 const handleRejected = (state: RecipesIntitialState, action: any) => {
@@ -63,7 +65,6 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.recipes = action.payload;
-        Notiflix.Loading.remove();
       })
       .addCase(fetchRecipesMainPage.rejected, handleRejected)
       .addCase(fetchCategoriesList.pending, handlePending)
@@ -71,7 +72,6 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.categories = action.payload;
-        Notiflix.Loading.remove();
       })
       .addCase(fetchCategoriesList.rejected, handleRejected)
       .addCase(fetchRecipesByCategory.pending, handlePending)
@@ -79,10 +79,8 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.recipes = action.payload;
-        Notiflix.Loading.remove();
       })
       .addCase(fetchRecipesByCategory.rejected, handleRejected);
-
   },
 });
 

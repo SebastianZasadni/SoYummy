@@ -4,9 +4,11 @@ import css from "./SharedLayout.module.css";
 import { Header } from "../Header/Header";
 import { OthersNavigation } from "../Navigation/Navigation";
 import { Footer } from "../Footer/Footer";
+import { useSelector } from "react-redux";
+import { selectIsMenuMobile } from "../../redux/global/selectors";
 
 const SharedLayout = () => {
-  const isMenuMobile = false;
+  const isMenuMobile = useSelector(selectIsMenuMobile);
   return isMenuMobile ? (
     <OthersNavigation />
   ) : (

@@ -3,10 +3,19 @@ import { Logo } from "../Logo/Logo";
 import { UserLogo } from "../UserLogo/UserLogo";
 import { DesktopNavigation } from "../Navigation/Navigation";
 import { LogoutBtn } from "../LogoutBtn/LogoutBtn";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { setIsMenuMobile } from "../../redux/global/slice";
 
 const isDesktop = window.innerWidth > 1279;
 
 export const Header = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setIsMenuMobile(true));
+  };
+
   return (
     <div className={css.headerWrapper}>
       <div className={css.headerBox}>
@@ -19,6 +28,7 @@ export const Header = () => {
             src="/assets/icon-nav-hamburger.png"
             alt="nav-hamburger"
             className={css.navHamburger}
+            onClick={handleClick}
           />
         </div>
       </div>
