@@ -9,6 +9,7 @@ import { ChooseYourBreakfast } from "../../components/ChooseYourBreakfast/Choose
 import { PreviewCategories } from "../../components/PreviewCategories/PreviewCategories";
 import { Search } from "../../components/Search/Search";
 import css from "./MainPage.module.css";
+import { reset } from "../../redux/recipes/slice";
 
 const MainPage = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -16,6 +17,7 @@ const MainPage = () => {
   const isError = useSelector(selectError);
 
   useEffect(() => {
+    dispatch(reset());
     dispatch(fetchRecipesMainPage());
   }, [dispatch]);
 

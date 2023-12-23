@@ -9,6 +9,7 @@ import { AppDispatch } from "../../redux/store";
 import css from "./CategoriesPage.module.css";
 import { selectCategories, selectRecipes } from "../../redux/recipes/selectors";
 import { RecipeItem } from "../../components/RecipeItem/RecipeItem";
+import { reset } from "../../redux/recipes/slice";
 
 const CategoriesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,6 +22,7 @@ const CategoriesPage = () => {
   const { category } = useParams();
 
   useEffect(() => {
+    dispatch(reset());
     dispatch(fetchCategoriesList());
     dispatch(fetchRecipesByCategory({ category, page }));
   }, [dispatch, category, page]);
