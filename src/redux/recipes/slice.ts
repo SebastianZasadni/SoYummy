@@ -1,13 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Notiflix from "notiflix";
 import {
   fetchCategoriesList,
   fetchRecipesMainPage,
   fetchRecipesByCategory,
+  fetchIngredientsList,
 } from "./operations";
 
-export interface Ingredient {
+interface IngredientInRecipes {
   _id: string;
   measure: string;
+}
+
+export interface Ingredient {
+  desc: string;
+  t: string;
+  tnb: string;
+  ttl: string;
+  _id: string;
 }
 
 export interface Category {
@@ -28,41 +38,48 @@ export interface Recipe {
   favorites: string[] | [];
   youtube: string;
   tags: string[];
-  ingredients: Ingredient[];
+  ingredients: IngredientInRecipes[];
 }
 
 export interface RecipesIntitialState {
   isLoading: boolean;
   error: string | null;
   recipes: Recipe[];
+  ingredients: Ingredient[];
   categories: Category[];
 }
 
 const initialState: RecipesIntitialState = {
   recipes: [],
   categories: [],
+  ingredients: [],
   isLoading: false,
   error: null,
 };
 
 const handlePending = (state: RecipesIntitialState) => {
   state.isLoading = true;
+  Notiflix.Loading.standard("Loading...");
 };
 
 const handleRejected = (state: RecipesIntitialState, action: any) => {
   state.isLoading = false;
+  Notiflix.Loading.remove();
   state.error = action.payload;
 };
 
 const recipesSlice = createSlice({
   name: "recipes",
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => initialState,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRecipesMainPage.pending, handlePending)
       .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
         state.isLoading = false;
+        Notiflix.Loading.remove();
         state.error = null;
         state.recipes = action.payload;
       })
@@ -70,6 +87,7 @@ const recipesSlice = createSlice({
       .addCase(fetchCategoriesList.pending, handlePending)
       .addCase(fetchCategoriesList.fulfilled, (state, action) => {
         state.isLoading = false;
+        Notiflix.Loading.remove();
         state.error = null;
         state.categories = action.payload;
       })
@@ -77,11 +95,21 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesByCategory.pending, handlePending)
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.isLoading = false;
+        Notiflix.Loading.remove();
         state.error = null;
         state.recipes = action.payload;
       })
-      .addCase(fetchRecipesByCategory.rejected, handleRejected);
+      .addCase(fetchRecipesByCategory.rejected, handleRejected)
+      .addCase(fetchIngredientsList.pending, handlePending)
+      .addCase(fetchIngredientsList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.ingredients = action.payload;
+      })
+      .addCase(fetchIngredientsList.rejected, handleRejected);
   },
 });
 
+export const { reset } = recipesSlice.actions;
 export const recipesReducer = recipesSlice.reducer;

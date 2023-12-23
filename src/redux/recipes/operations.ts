@@ -48,3 +48,15 @@ export const fetchRecipesByCategory = createAsyncThunk(
     }
   }
 );
+
+export const fetchIngredientsList = createAsyncThunk(
+  "recipes/fetchIngredientsList",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/ingredients/list`);
+      return response.data.ingredientsList;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
