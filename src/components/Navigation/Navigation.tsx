@@ -66,12 +66,9 @@ export const OthersNavigation = () => {
     <div className={css.othersNavigationWrapper}>
       <div className={css.menuHeader}>
         <Logo />
-        <img
-          srcSet="/assets/icon-exit.png 1x, /assets/icon-exit@2x.png 2x"
-          alt="exit"
-          className={css.iconExit}
-          onClick={handleClick}
-        />
+        <svg className={css.iconExit} onClick={handleClick}>
+          <use href="/assets/icons.svg#icon-exit"></use>
+        </svg>
       </div>
       <MenuList />
     </div>
