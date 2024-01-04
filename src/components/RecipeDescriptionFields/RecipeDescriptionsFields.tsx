@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import Select, { SingleValue } from "react-select";
+import Select from "react-select";
 import { AppDispatch } from "../../redux/store";
 import css from "./RecipeDescriptionField.module.css";
 import { fetchCategoriesList } from "../../redux/recipes/operations";
@@ -15,12 +15,12 @@ export interface Option {
   label: string | null;
 }
 
-export const RecipeDescriptionField = ({ onImageChange }) => {
+interface Props {
+  onImageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const RecipeDescriptionField = ({ onImageChange }: Props) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [title, setTitle] = useState<string | null>(null);
-  const [about, setAbout] = useState<string | null>(null);
-  const [category, setCategory] = useState("beef");
-  const [cookingTime, setCookingTime] = useState("30");
   const dispatch: AppDispatch = useDispatch();
   const categories = useSelector(selectCategories);
 
@@ -33,24 +33,6 @@ export const RecipeDescriptionField = ({ onImageChange }) => {
     onImageChange(image);
     const url = URL.createObjectURL(image);
     setImageUrl(url);
-  };
-
-  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setTitle(value);
-  };
-
-  const handleAboutChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setAbout(value);
-  };
-
-  const handleCategoryChange = (value: SingleValue<Option>) => {
-    setCategory(value);
-  };
-
-  const handleTimeChange = (value: SingleValue<Option>) => {
-    setCookingTime(value);
   };
 
   useEffect(() => {
@@ -73,48 +55,36 @@ export const RecipeDescriptionField = ({ onImageChange }) => {
         />
       </label>
       <div className={css.descriptionFields}>
-      <label className={css.titleLabel}>
-        Enter item title
-        <input
-          name="title"
-          type="text"
-          className={css.titleInput}
-          onChange={handleTitleChange}
-        />
-      </label>
-      <label className={css.aboutLabel}>
-        Enter about recipe
-        <input
-          name="about"
-          type="text"
-          className={css.aboutInput}
-          onChange={handleAboutChange}
-        />
-      </label>
-      <label className={css.categoryLabel}>
-        Category
-        <Select
-          name="category"
-          options={categoryTitles}
-          className={css.reactSelect}
-          placeholder="Please choose category"
-          isSearchable={false}
-          onChange={handleCategoryChange}
-          styles={selectStyles}
-        />
-      </label>
-      <label className={css.cookingTimeLabel}>
-        Cooking time
-        <Select
-          name="time"
-          options={cookingTimesList}
-          className={css.reactSelect}
-          placeholder="Please set time"
-          isSearchable={false}
-          onChange={handleTimeChange}
-          styles={selectStyles}
-        />
-      </label>
+        <label className={css.titleLabel}>
+          Enter item title
+          <input name="title" type="text" className={css.titleInput} />
+        </label>
+        <label className={css.aboutLabel}>
+          Enter about recipe
+          <input name="about" type="text" className={css.aboutInput} />
+        </label>
+        <label className={css.categoryLabel}>
+          Category
+          <Select
+            name="category"
+            options={categoryTitles}
+            className={css.reactSelect}
+            placeholder="Please choose category"
+            isSearchable={false}
+            styles={selectStyles}
+          />
+        </label>
+        <label className={css.cookingTimeLabel}>
+          Cooking time
+          <Select
+            name="time"
+            options={cookingTimesList}
+            className={css.reactSelect}
+            placeholder="Please set time"
+            isSearchable={false}
+            styles={selectStyles}
+          />
+        </label>
       </div>
     </div>
   );

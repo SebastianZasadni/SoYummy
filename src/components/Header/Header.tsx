@@ -7,8 +7,6 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { setIsMenuMobile } from "../../redux/global/slice";
 
-const isDesktop = window.innerWidth > 1279;
-
 export const Header = () => {
   const dispatch: AppDispatch = useDispatch();
 

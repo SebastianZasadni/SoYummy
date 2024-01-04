@@ -8,7 +8,7 @@ interface RecipeCategoryFetchProps {
   page: number;
 }
 
-interface AddRecipeProps {
+export interface AddRecipeProps {
   title: string;
   about: string;
   category: string;

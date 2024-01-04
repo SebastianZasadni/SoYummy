@@ -19,11 +19,12 @@ export const AddRecipeForm = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const title = e.currentTarget.title.value;
-    const about = e.currentTarget.about.value;
-    const category = e.currentTarget.category.value;
-    const time = e.currentTarget.time.value;
-    const preparation = e.currentTarget.preparation.value;
+    const form = e.currentTarget;
+    const title = form.title.value;
+    const about = form.about.value;
+    const category = form.category.value;
+    const time = form.time.value;
+    const preparation = form.preparation.value;
 
     const { ingredientsNodeList, quantityNodeList, measureNodeList } =
       e.currentTarget;
@@ -50,9 +51,9 @@ export const AddRecipeForm = () => {
       !quantity ||
       !ingredientsArray
     ) {
-      return Notify.failure("Fill all of fields");
+      return Notify.failure("Please fill all of fields");
     } else if (!image) {
-      return Notify.failure("You have to add image");
+      return Notify.failure("Please add an image");
     }
 
     const ingredients = ingredientsArray.map((ingredient, index) => ({
@@ -80,6 +81,7 @@ export const AddRecipeForm = () => {
         ingredients,
       })
     );
+    form.reset();
   };
 
   return (

@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
 import css from "./PreviewCategories.module.css";
 import { selectRecipes } from "../../redux/recipes/selectors";
 import { Recipe } from "../../redux/recipes/slice";

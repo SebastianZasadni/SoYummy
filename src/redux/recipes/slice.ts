@@ -75,7 +75,7 @@ const recipesSlice = createSlice({
   name: "recipes",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder
