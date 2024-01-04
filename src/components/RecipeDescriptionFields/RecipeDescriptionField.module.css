@@ -1,29 +1,39 @@
-.descriptionFields {
+.descriptionBox {
   display: flex;
   flex-direction: column;
   gap: 30px;
   align-items: center;
 }
-label {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000;
+.descriptionFields{
+  width: 343px;
 }
-input {
+.titleInput,
+.aboutInput {
   border-style: none none solid none;
   border-color: #e0e0e0;
   outline: none;
 }
+.recipeImage {
+  width: 279px;
+  height: 268px;
+}
 .imageLabel {
+  display: flex;
   margin-top: 72px;
   width: 279px;
   height: 268px;
   background-color: var(--main-green);
   justify-content: center;
   align-items: center;
+}
+.titleLabel,
+.aboutLabel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000;
 }
 .imageInput {
   display: none;
@@ -34,6 +44,11 @@ input {
 }
 .categoryLabel,
 .cookingTimeLabel {
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -41,11 +56,34 @@ input {
   border-color: #e0e0e0;
   padding-bottom: 19px;
 }
-.select {
+.reactSelect {
   width: 150px;
-  outline: none;
-  color: #000000;
+  color: #000;
   font-size: 12px;
   line-height: 12px;
-  max-height: 100px;
+}
+@media screen and (min-width: 768px) {
+  .descriptionBox {
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+  }
+  .reactSelect {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .descriptionFields {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 393px;
+  }
+  .categoryLabel,
+  .cookingTimeLabel,
+  .aboutLabel,
+  .titleLabel {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }

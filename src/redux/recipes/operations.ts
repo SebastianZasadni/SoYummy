@@ -1,6 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Notify } from "notiflix";
 import axios from "axios";
-import Notiflix from "notiflix";
+import { IngredientInRecipes } from "./slice";
+
+interface RecipeCategoryFetchProps {
+  category: string;
+  page: number;
+}
+
+interface AddRecipeProps {
+  title: string;
+  about: string;
+  category: string;
+  thumb: string;
+  time: string;
+  preparation: string;
+  ingredients: IngredientInRecipes[];
+}
 
 axios.defaults.baseURL = "https://soyummy-api.onrender.com/api/";
 
@@ -39,7 +55,7 @@ export const fetchCategoriesList = createAsyncThunk(
 
 export const fetchRecipesByCategory = createAsyncThunk(
   "recipes/fetchRecipesByCategory",
-  async ({ category, page }, thunkAPI) => {
+  async ({ category, page }: RecipeCategoryFetchProps, thunkAPI) => {
     try {
       const response = await axios.get(`/recipes/${category}/?page=${page}`);
       return response.data.recipes;
@@ -55,6 +71,50 @@ export const fetchIngredientsList = createAsyncThunk(
     try {
       const response = await axios.get(`/ingredients/list`);
       return response.data.ingredientsList;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addRecipe = createAsyncThunk(
+  "recipes/addRecipe",
+  async (
+    {
+      title,
+      about,
+      category,
+      thumb,
+      time,
+      preparation,
+      ingredients,
+    }: AddRecipeProps,
+    thunkAPI
+  ) => {
+    try {
+      const response = await axios.post("/own-recipes", {
+        title,
+        about,
+        category,
+        thumb,
+        time,
+        preparation,
+        ingredients,
+      });
+      Notify.success("Your recipe was added");
+      return response.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const fetchPopularRecipes = createAsyncThunk(
+  "recipes/fetchPopularRecipes",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/popular-recipes");
+      return response.data.popularRecipes;
     } catch (e: any) {
       return thunkAPI.rejectWithValue(e.message);
     }

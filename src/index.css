@@ -5,15 +5,19 @@
   --secondary-black: #22252a;
   --third-black: #2a2c36;
   --main-grey: #d9d9d9;
-  --primary-font: "Poppins";
+  font-family: "Poppins";
 }
 body {
-  font-family: "Poppins";
   margin: 0;
   padding: 0;
   background-color: var(--main-white);
+  font-family: "Poppins";
 }
-
+button,
+textarea,
+input {
+  font-family: "Poppins";
+}
 a {
   text-decoration: none;
 }

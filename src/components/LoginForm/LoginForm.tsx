@@ -5,8 +5,8 @@ import css from "./loginForm.module.css";
 import { validationCorrect, validationError } from "../../utils/validation";
 import { FormEvent } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/auth/operations";
 import { AppDispatch } from "../../redux/store";
+import { login } from "../../redux/auth/operations";
 
 export interface CredentialsLogin {
   email: string;

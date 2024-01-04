@@ -1,0 +1,72 @@
+.popularRecipeHeading {
+  margin-top: 72px;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.popularRecipesListItem {
+  padding-top: 24px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgb(107, 107, 107, 0.2);
+}
+.popularRecipeLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.recipeImage {
+  width: 104px;
+  height: 85px;
+}
+.recipeDescriptionBox {
+  margin: 0;
+  padding: 0;
+}
+.recipeTitle {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #3e4462;
+}
+.recipeDescription {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  display: block;
+  width: 213px;
+  height: 48px;
+  font-size: 12px;
+  line-height: 16px;
+  position: relative;
+  color: #7e7e7e;
+}
+.popularRecipesWarning {
+  text-align: center;
+  color: var(--main-black);
+}
+@media screen and (min-width: 768px) {
+  .popularReciepesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .popularRecipesListItem {
+    display: none;
+  }
+  .popularRecipesListItem:nth-child(-n + 2) {
+    display: list-item;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .popularReciepesList {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .popularRecipesListItem:nth-child(-n + 4) {
+    display: list-item;
+  }
+}

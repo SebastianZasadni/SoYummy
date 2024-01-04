@@ -8,9 +8,19 @@
 .addRecipePageWrapper {
   padding: 0px 16px;
 }
-/* @media screen and (min-width: 768px){
-
+@media screen and (min-width: 768px) {
+  .addRecipePageWrapper {
+    padding: 0px 32px;
+  }
 }
-@media screen and (min-width: 1280px){
-    
-} */
+
+@media screen and (min-width: 1280px) {
+  .addRecipePageWrapper {
+    padding: 0px 100px;
+  }
+  .desktopWrapper {
+    display: flex;
+    gap: 120px;
+    justify-content: space-between;
+    }
+}

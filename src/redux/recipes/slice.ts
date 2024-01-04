@@ -5,9 +5,11 @@ import {
   fetchRecipesMainPage,
   fetchRecipesByCategory,
   fetchIngredientsList,
+  addRecipe,
+  fetchPopularRecipes,
 } from "./operations";
 
-interface IngredientInRecipes {
+export interface IngredientInRecipes {
   _id: string;
   measure: string;
 }
@@ -33,6 +35,7 @@ export interface Recipe {
   area: string;
   instructions: string;
   thumb: string;
+  description: string;
   preview: string;
   time: string;
   favorites: string[] | [];
@@ -107,7 +110,23 @@ const recipesSlice = createSlice({
         state.error = null;
         state.ingredients = action.payload;
       })
-      .addCase(fetchIngredientsList.rejected, handleRejected);
+      .addCase(fetchIngredientsList.rejected, handleRejected)
+      .addCase(addRecipe.rejected, handleRejected)
+      .addCase(addRecipe.pending, handlePending)
+      .addCase(addRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes.push(action.payload);
+      })
+      .addCase(fetchPopularRecipes.rejected, handleRejected)
+      .addCase(fetchPopularRecipes.pending, handlePending)
+      .addCase(fetchPopularRecipes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes = action.payload;
+      });
   },
 });
 

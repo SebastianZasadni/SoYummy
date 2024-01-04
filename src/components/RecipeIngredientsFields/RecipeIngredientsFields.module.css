@@ -1,0 +1,115 @@
+.countOfIngredientsBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ingredientsBox {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}
+.countOfIngredientsLabel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 92px;
+  height: 20px;
+  flex-direction: row;
+  border-radius: 20px;
+  border: 1px solid #3333334d;
+  padding: 4px 6px;
+}
+.decrementButtton {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+}
+.incrementButton {
+  width: 14px;
+  height: 14px;
+}
+.countOfIngredientsInput {
+  width: 20px;
+  font-family: "Inter";
+  font-size: 15px;
+  line-height: 18px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+.iconPlus,
+.iconMinus {
+  width: 14px;
+  height: 14px;
+}
+.reactSelect {
+  color: #000;
+  font-size: 12px;
+  line-height: 12px;
+}
+.ingredientsQuantityBox {
+  display: flex;
+  width: 130px;
+  flex-direction: row;
+  background-color: #f5f5f5;
+  justify-content: space-around;
+}
+.ingredientsQuantityInput {
+  border: none;
+  outline: none;
+  width: 40px;
+  background-color: #f5f5f5;
+  margin-right: 1px;
+  text-align: center;
+}
+.iconExit {
+  width: 18px;
+  height: 18px;
+}
+.recipePreparationField {
+  width: 328px;
+  height: 154px;
+  background-color: #f5f5f5;
+  border: none;
+  outline: none;
+  padding-left: 16px;
+  padding-top: 10px;
+  vertical-align: top;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 21px;
+  resize: none;
+}
+@media screen and (min-width: 768px) {
+  .recipePreparationField {
+    width: 505px;
+    height: 224px;
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+.reactSelect {
+  font-size: 18px;
+  line-height: 27px;
+}
+.ingredientsQuantityInput {
+  font-size: 18px;
+  width: 80px;
+  line-height: 27px;
+}
+@media screen and (min-width: 1280px) {
+  .ingredientsBox {
+    justify-content: flex-start;
+    gap: 32px;
+  }
+  .countOfIngredientsInput {
+    width: 30px;
+    padding-left: 16px;
+  }
+  .countOfIngredientsBox {
+    justify-content: flex-start;
+    gap: 337px;
+  }
+}
