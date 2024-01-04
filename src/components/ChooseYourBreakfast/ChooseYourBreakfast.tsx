@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import css from "./ChooseYourBreakfast.module.css";
 
 export const ChooseYourBreakfast = () => {
@@ -8,10 +9,12 @@ export const ChooseYourBreakfast = () => {
         way to enjoy a variety of fresh ingredients in one satisfying meal
       </p>
       <button type="button" className={css.button}>
-        See recipes
-        <svg className={css.iconArrow}>
-          <use href="/assets/icons.svg#icon-arrow"></use>
-        </svg>
+        <NavLink to="/category/breakfast?page=1">
+          See recipes
+          <svg className={css.iconArrow}>
+            <use href="/assets/icons.svg#icon-arrow"></use>
+          </svg>
+        </NavLink>
       </button>
     </div>
   );

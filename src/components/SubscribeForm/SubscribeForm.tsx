@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import axios from "axios";
 import Joi from "joi";
 import { validationCorrect, validationError } from "../../utils/validation";
 import css from "./SubscribeForm.module.css";
@@ -47,8 +48,14 @@ export const SubscribeForm = () => {
     }
   };
 
+  const handleSubmit = () => {
+    return (
+      console.log('ok')
+    )
+  }
+
   return (
-    <form className={css.footerForm}>
+    <form className={css.footerForm} onSubmit={handleSubmit}>
       <p className={css.newsletterHeading}>Subscribe to our Newsletter</p>
       <p className={css.newsletterDescription}>
         Subscribe up to our newsletter. Be in touch with
