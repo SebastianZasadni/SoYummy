@@ -21,7 +21,7 @@ export const Header = () => {
       <div className={css.headerBox}>
         <Logo />
         <LogoutBtn />
-        {isDesktop && <DesktopNavigation />}
+        <DesktopNavigation />
         <div className={css.headerRightSide}>
           <UserLogo />
           <img
