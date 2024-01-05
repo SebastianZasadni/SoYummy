@@ -14,9 +14,7 @@
   .addRecipeForm__Button {
     padding: 14px 64px;
   }
-}
-@media screen and (min-width: 1280px) {
-   .addRecipeForm__Button {
+  .addRecipeForm__Button {
     margin: 18px 0;
   }
 }
