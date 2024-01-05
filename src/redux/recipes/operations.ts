@@ -101,7 +101,7 @@ export const addRecipe = createAsyncThunk(
         preparation,
         ingredients,
       });
-      Notify.success("Your recipe was added");
+      Notify.success("Your recipe has been added");
       return response.data;
     } catch (e: any) {
       return thunkAPI.rejectWithValue(e.message);
