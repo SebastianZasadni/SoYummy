@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import { Notify } from "notiflix";
 import axios from "axios";
 import Joi from "joi";
 import { validationCorrect, validationError } from "../../utils/validation";
@@ -48,11 +49,20 @@ export const SubscribeForm = () => {
     }
   };
 
-  const handleSubmit = () => {
-    return (
-      console.log('ok')
-    )
-  }
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = form.email.value;
+    try {
+      await axios.post("https://soyummy-api.onrender.com/api/users/subscribe", {
+        email,
+      });
+      Notify.success("Newsletter email sent.");
+      form.reset();
+    } catch (error) {
+      Notify.failure("An error occurred while sending the request: " + error);
+    }
+  };
 
   return (
     <form className={css.footerForm} onSubmit={handleSubmit}>
@@ -86,7 +96,7 @@ export const SubscribeForm = () => {
       </label>
       <button
         disabled={isButtonDisabled}
-        type="button"
+        type="submit"
         className={css.formButton}
         ref={newsletterButtonRef}
       >
