@@ -62,11 +62,12 @@
   border: none;
   outline: none;
   display: block;
+  width: 30px;
   background-color: #f5f5f5;
   margin-right: 1px;
   text-align: center;
   font-size: 12px !important;
-  line-height: 12px;
+  line-height: 12px !important;
 }
 .iconExit {
   width: 18px;
@@ -93,16 +94,19 @@
     font-size: 18px;
     line-height: 27px;
   }
-}
-.ingredientsQuantityInput {
-  font-size: 18px !important;
-  width: 80px;
-  line-height: 27px !important;
+  .ingredientsQuantityInput {
+    font-size: 18px !important;
+    width: 80px;
+    line-height: 27px !important;
+  }
 }
 @media screen and (min-width: 1280px) {
   .ingredientsBox {
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 32px;
+  }
+  .ingredientsQuantityInput {
+    width: 60px;
   }
   .countOfIngredientsInput {
     width: 30px;
