@@ -32,7 +32,7 @@ const App = () => {
           index
           path="welcome"
           element={
-            <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+            <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
           }
         />
         <Route
@@ -49,14 +49,17 @@ const App = () => {
         />
         <Route
           element={
-            <ProtectedRoute redirectTo="/login" component={<SharedLayout />} />
+            <ProtectedRoute
+              redirectTo="/welcome"
+              component={<SharedLayout />}
+            />
           }
         >
           <Route path="main" index element={<MainPage />} />
           <Route path="category/:category" element={<CategoriesPage />} />
           <Route path="add" element={<AddRecipePage />} />
         </Route>
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>
     </>
   );
