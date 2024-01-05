@@ -161,7 +161,7 @@ export const RegisterForm = () => {
     const form = event.currentTarget;
     const credentials: CredentialsRegister = {
       email: form.email.value,
-      name: form.name.value,
+      name: form.username.value,
       password: form.password.value,
     };
     await dispatch(register(credentials));
@@ -181,7 +181,7 @@ export const RegisterForm = () => {
             onChange={handleNameChange}
             type="text"
             placeholder="Name"
-            name="name"
+            name="username"
             className={css.registerForm__Inputs}
           />
           <img
