@@ -12,7 +12,7 @@ import { RecipeItem } from "../../components/RecipeItem/RecipeItem";
 import { reset } from "../../redux/recipes/slice";
 
 const CategoriesPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const dispatch: AppDispatch = useDispatch();
 
   const categories = useSelector(selectCategories);

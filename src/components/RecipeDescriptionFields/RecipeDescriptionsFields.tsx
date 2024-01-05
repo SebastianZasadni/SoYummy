@@ -16,7 +16,7 @@ export interface Option {
 }
 
 interface Props {
-  onImageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onImageChange: (event: File | null) => void;
 }
 
 export const RecipeDescriptionField = ({ onImageChange }: Props) => {
@@ -29,10 +29,12 @@ export const RecipeDescriptionField = ({ onImageChange }: Props) => {
   });
 
   const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
-    const image = e.target.files[0];
+    const image = e.target.files && e.target.files[0];
     onImageChange(image);
-    const url = URL.createObjectURL(image);
-    setImageUrl(url);
+    if (image) {
+      const url = URL.createObjectURL(image);
+      setImageUrl(url);
+    }
   };
 
   useEffect(() => {
@@ -57,7 +59,7 @@ export const RecipeDescriptionField = ({ onImageChange }: Props) => {
       <div className={css.descriptionFields}>
         <label className={css.titleLabel}>
           Enter item title
-          <input name="title" type="text" className={css.titleInput} />
+          <input name="recipeName" type="text" className={css.titleInput} />
         </label>
         <label className={css.aboutLabel}>
           Enter about recipe

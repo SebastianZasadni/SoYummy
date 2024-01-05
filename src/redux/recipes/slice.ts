@@ -10,7 +10,7 @@ import {
 } from "./operations";
 
 export interface IngredientInRecipes {
-  _id: string;
+  id: string;
   measure: string;
 }
 

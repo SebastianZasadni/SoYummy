@@ -4,8 +4,8 @@ import axios from "axios";
 import { IngredientInRecipes } from "./slice";
 
 interface RecipeCategoryFetchProps {
-  category: string;
-  page: number;
+  category: string | undefined;
+  page: string;
 }
 
 export interface AddRecipeProps {

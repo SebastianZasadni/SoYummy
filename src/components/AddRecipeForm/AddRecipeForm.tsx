@@ -7,20 +7,21 @@ import { FormEvent } from "react";
 import { addRecipe } from "../../redux/recipes/operations";
 import { RecipeDescriptionField } from "../RecipeDescriptionFields/RecipeDescriptionsFields";
 import { RecipeIngredientsFields } from "../RecipeIngredientsFields/RecipeIngredientsFields";
+import { AddRecipeProps } from "../../redux/recipes/operations";
 import css from "./AddRecipeForm.module.css";
 
 export const AddRecipeForm = () => {
-  const [image, setImage] = useState<File | string>("");
+  const [image, setImage] = useState<File | null>(null);
   const dispatch: AppDispatch = useDispatch();
 
-  const handleImageChange = (image: File | string) => {
+  const handleImage = (image: File | null) => {
     setImage(image);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const title = form.title.value;
+    const title = form.recipeName.value;
     const about = form.about.value;
     const category = form.category.value;
     const time = form.time.value;
@@ -29,17 +30,24 @@ export const AddRecipeForm = () => {
     const { ingredientsNodeList, quantityNodeList, measureNodeList } =
       e.currentTarget;
 
-    const ingredientsArray = !ingredientsNodeList.length
+    const ingredientsArray: string[] = !ingredientsNodeList.length
       ? [ingredientsNodeList.value]
-      : Array.from(ingredientsNodeList).map((ingredient) => ingredient.value);
+      : Array.from(ingredientsNodeList).map(
+          (ingredient: any) => ingredient.value
+        );
 
     const quantity = !quantityNodeList.length
       ? [quantityNodeList.value]
-      : Array.from(quantityNodeList).map((quantity) => quantity.value);
+      : Array.from(quantityNodeList).map((quantity: any) => quantity.value);
 
     const measure = !measureNodeList.length
       ? [measureNodeList.value]
-      : Array.from(measureNodeList).map((measure) => measure.value);
+      : Array.from(measureNodeList).map((measure: any) => measure.value);
+
+    const ingredients = ingredientsArray.map((ingredient, index) => ({
+      id: ingredient,
+      measure: quantity[index] + measure[index],
+    }));
 
     if (
       !title ||
@@ -48,45 +56,42 @@ export const AddRecipeForm = () => {
       !time ||
       !preparation ||
       !measure ||
-      !quantity ||
-      !ingredientsArray
+      quantity.includes("") ||
+      !ingredients
     ) {
       return Notify.failure("Please fill all of fields");
     } else if (!image) {
       return Notify.failure("Please add an image");
     }
-
-    const ingredients = ingredientsArray.map((ingredient, index) => ({
-      _id: ingredient,
-      measure: quantity[index] + measure[index],
-    }));
-
     const data = new FormData();
     data.append("image", image);
-    const res = await axios.post(
-      "https://soyummy-api.onrender.com/api/upload",
-      data
-    );
 
-    const thumb = res.data;
-
-    await dispatch(
-      addRecipe({
-        title,
-        about,
-        category,
+    try {
+      const res = await axios.post(
+        "https://soyummy-api.onrender.com/api/upload",
+        data
+      );
+      const thumb = res.data;
+      const credentials: AddRecipeProps = {
+        title: form.recipeName.value,
+        about: form.about.value,
+        category: form.category.value,
+        time: form.time.value,
+        preparation: form.preparation.value,
         thumb,
-        time,
-        preparation,
         ingredients,
-      })
-    );
-    form.reset();
+      };
+
+      await dispatch(addRecipe(credentials));
+      form.reset();
+    } catch (error) {
+      Notify.failure("An error occurred while uploading image.");
+    }
   };
 
   return (
     <form className={css.addRecipeForm} onSubmit={handleSubmit}>
-      <RecipeDescriptionField onImageChange={handleImageChange} />
+      <RecipeDescriptionField onImageChange={handleImage} />
       <RecipeIngredientsFields />
       <button type="submit" className={css.addRecipeForm__Button}>
         Add
