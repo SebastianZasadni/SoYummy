@@ -120,3 +120,15 @@ export const fetchPopularRecipes = createAsyncThunk(
     }
   }
 );
+
+export const fetchRecipeById = createAsyncThunk(
+  "recipes/fetchRecipeById",
+  async ({ recipeId }: { recipeId: string | undefined }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/id/${recipeId}`);
+      return response.data.recipe;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

@@ -1,0 +1,138 @@
+.ingredientsListWrapper {
+  padding: 0px 16px;
+}
+.ingredientsListHeader {
+  padding: 0px 14px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ingredientsListHeaderHeading:nth-child(2) {
+  margin-left: 122px;
+}
+.ingredientsListHeaderHeading {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  color: var(--main-white);
+}
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+}
+.ingredientsListItem {
+  margin-top: 16px;
+  width: 100%;
+  height: 86px;
+  border-radius: 8px;
+  gap: 8px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ebf3d4;
+  align-items: center;
+}
+.ingredientImage {
+  display: block;
+  width: 57px;
+  height: 57px;
+  margin-left: 20px;
+}
+.ingredientTitle {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+}
+.ingredientMeasure {
+  color: var(--main-white);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  width: 62px;
+  height: 23px;
+  display: flex;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  background-color: var(--main-green);
+}
+.ingredientAddButton {
+  background-color: transparent;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #7e7e7e80;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .ingredientsListWrapper {
+    padding: 0px 32px;
+  }
+  .ingredientsListHeader {
+    padding: 0px 32px;
+    height: 60px;
+  }
+  .ingredientsListHeaderHeading {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .ingredientsListHeaderHeading:nth-child(2) {
+    margin-left: 312px;
+  }
+  .ingredientsListItem {
+    height: 178px;
+    margin-top: 32px;
+    justify-content: space-between;
+  }
+  .ingredientImage {
+    width: 112px;
+    height: 112px;
+    margin-left: 40px;
+  }
+  .ingredientTitle {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .ingredientMeasure {
+    width: 100px;
+    height: 36px;
+    font-size: 18px;
+    line-height: 27px;
+    margin-right: 5px;
+  }
+  .ingredientAddButton {
+    width: 35px;
+    height: 35px;
+    margin-right: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .ingredientsListWrapper {
+    padding: 0px 100px;
+  }
+  .ingredientListItem {
+    position: relative;
+    justify-content: space-around;
+    gap: 50px;
+  }
+  .ingredientMeasure {
+    margin-left: 252px;
+    position: absolute;
+    right: 30%;
+  }
+  .ingredientImage {
+    margin-left: 100px;
+  }
+  .ingredientTitle{
+    position: absolute;
+    left: 30%;
+  }
+  .ingredientAddButton{
+    margin-right: 100px;
+  }
+}
+

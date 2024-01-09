@@ -7,6 +7,7 @@ import {
   fetchIngredientsList,
   addRecipe,
   fetchPopularRecipes,
+  fetchRecipeById,
 } from "./operations";
 
 export interface IngredientInRecipes {
@@ -17,7 +18,7 @@ export interface IngredientInRecipes {
 export interface Ingredient {
   desc: string;
   t: string;
-  tnb: string;
+  thb: string;
   ttl: string;
   _id: string;
 }
@@ -47,6 +48,7 @@ export interface Recipe {
 export interface RecipesIntitialState {
   isLoading: boolean;
   error: string | null;
+  recipe: Recipe | Record<string, never>;
   recipes: Recipe[];
   ingredients: Ingredient[];
   categories: Category[];
@@ -54,6 +56,7 @@ export interface RecipesIntitialState {
 
 const initialState: RecipesIntitialState = {
   recipes: [],
+  recipe: {},
   categories: [],
   ingredients: [],
   isLoading: false,
@@ -126,6 +129,14 @@ const recipesSlice = createSlice({
         Notiflix.Loading.remove();
         state.error = null;
         state.recipes = action.payload;
+      })
+      .addCase(fetchRecipeById.rejected, handleRejected)
+      .addCase(fetchRecipeById.pending, handlePending)
+      .addCase(fetchRecipeById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipe = action.payload[0];
       });
   },
 });
