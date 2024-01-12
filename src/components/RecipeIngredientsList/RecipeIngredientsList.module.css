@@ -50,8 +50,8 @@
   font-weight: 600;
   font-size: 10px;
   line-height: 15px;
-  width: 62px;
-  height: 23px;
+  padding: 10px;
+  text-align: center;
   display: flex;
   border-radius: 4px;
   align-items: center;
@@ -67,6 +67,15 @@
   border: 1px solid #7e7e7e80;
   border-radius: 4px;
   margin-right: 20px;
+  padding: 3px 4px 4px 4px;
+}
+.iconPick {
+  display: none;
+}
+.iconPickMobile {
+  display: block;
+  width: 9px;
+  height: 9px;
 }
 @media screen and (min-width: 768px) {
   .ingredientsListWrapper {
@@ -81,7 +90,7 @@
     line-height: 27px;
   }
   .ingredientsListHeaderHeading:nth-child(2) {
-    margin-left: 312px;
+    margin-left: 250px;
   }
   .ingredientsListItem {
     height: 178px;
@@ -107,7 +116,17 @@
   .ingredientAddButton {
     width: 35px;
     height: 35px;
-    margin-right: 40px;
+    margin-right: 55px;
+    padding: 1px 0px 0px 6px;
+  }
+  .iconPick {
+    margin-left: 3px;
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+  .iconPickMobile {
+    display: none;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -119,7 +138,14 @@
     justify-content: space-around;
     gap: 50px;
   }
+  .ingredientsListHeaderHeading:nth-child(2) {
+    margin-left: 450px;
+  }
+  .ingredientsListHeaderHeading:nth-child(3) {
+    margin-right: 40px;
+  }
   .ingredientMeasure {
+    text-align: center;
     margin-left: 252px;
     position: absolute;
     right: 30%;
@@ -127,12 +153,11 @@
   .ingredientImage {
     margin-left: 100px;
   }
-  .ingredientTitle{
+  .ingredientTitle {
     position: absolute;
     left: 30%;
   }
-  .ingredientAddButton{
+  .ingredientAddButton {
     margin-right: 100px;
   }
 }
-

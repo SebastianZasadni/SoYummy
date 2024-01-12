@@ -132,3 +132,39 @@ export const fetchRecipeById = createAsyncThunk(
     }
   }
 );
+
+export const fetchShopingList = createAsyncThunk(
+  "recipes/fetchShopingList",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/ingredients/shopping-list/`);
+      return response.data.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addIngredientToShoppingList = createAsyncThunk(
+  "recipes/addIngredientToShoppingList",
+  async ({ id }: { id: string | undefined }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/ingredients/shopping-list/${id}`);
+      return response.data.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const deleteIngredientFromShoppingList = createAsyncThunk(
+  "recipes/deleteIngredientFromShoppingList",
+  async ({ id }: { id: string | undefined }, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/ingredients/shopping-list/${id}`);
+      return response.data.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

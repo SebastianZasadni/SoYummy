@@ -6,6 +6,7 @@ import css from "./RecipePage.module.css";
 import {
   fetchIngredientsList,
   fetchRecipeById,
+  fetchShopingList,
 } from "../../redux/recipes/operations";
 import { reset } from "../../redux/recipes/slice";
 import { RecipePageHeader } from "../../components/RecipePageHeader/RecipePageHeader";
@@ -24,6 +25,7 @@ const RecipePage = () => {
     dispatch(reset());
     dispatch(fetchRecipeById({ recipeId }));
     dispatch(fetchIngredientsList());
+    dispatch(fetchShopingList());
   }, [dispatch, recipeId]);
 
   return (

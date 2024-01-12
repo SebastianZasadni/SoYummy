@@ -67,8 +67,6 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-  }
-  .recipePreparationList{
-    width: 757px;
+    gap: 50px;
   }
 }

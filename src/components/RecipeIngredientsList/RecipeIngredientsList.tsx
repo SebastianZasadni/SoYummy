@@ -1,10 +1,21 @@
 import { useSelector } from "react-redux";
-import { selectIngredients, selectRecipe } from "../../redux/recipes/selectors";
+import {
+  selectIngredients,
+  selectRecipe,
+  selectShoppingList,
+} from "../../redux/recipes/selectors";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 import css from "./RecipeIngredientsList.module.css";
-import { Ingredient } from "../../redux/recipes/slice";
+import {
+  addIngredientToShoppingList,
+  deleteIngredientFromShoppingList,
+} from "../../redux/recipes/operations";
 
 export const RecipeIngredientsList = () => {
+  const dispatch: AppDispatch = useDispatch();
   const recipe = useSelector(selectRecipe);
+  const shoppingList = useSelector(selectShoppingList);
   const ingredientsListApi = useSelector(selectIngredients);
   const { ingredients } = recipe;
 
@@ -21,6 +32,19 @@ export const RecipeIngredientsList = () => {
       };
     });
 
+  const isInShoppingList = (id: string | undefined) => {
+    if (shoppingList.find((ingredient) => ingredient === id)) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleClick = async (id: string | undefined) => {
+    isInShoppingList(id)
+      ? dispatch(deleteIngredientFromShoppingList({ id }))
+      : dispatch(addIngredientToShoppingList({ id }));
+  };
+
   return (
     <div className={css.ingredientsListWrapper}>
       <div className={css.ingredientsListHeader}>
@@ -30,14 +54,28 @@ export const RecipeIngredientsList = () => {
       </div>
       <ul className={css.ingredientsList}>
         {ingredients ? (
-          filteredIngredients.map((ingredient) => {
+          filteredIngredients.map((ingredient, index) => {
             const { _id, ttl, measure } = ingredient;
             return (
-              <li className={css.ingredientsListItem} key={_id}>
+              <li className={css.ingredientsListItem} key={index}>
                 <img src={ingredient.thb} className={css.ingredientImage} />
                 <p className={css.ingredientTitle}>{ttl}</p>
                 <p className={css.ingredientMeasure}>{measure}</p>
-                <button className={css.ingredientAddButton}></button>
+                <button
+                  className={css.ingredientAddButton}
+                  onClick={() => handleClick(_id)}
+                >
+                  {shoppingList && isInShoppingList(_id) ? (
+                    <>
+                      <svg className={css.iconPickMobile}>
+                        <use href="/assets/icons.svg#icon-pick-mobile"></use>
+                      </svg>
+                      <svg className={css.iconPick}>
+                        <use href="/assets/icons.svg#icon-pick"></use>
+                      </svg>
+                    </>
+                  ) : null}
+                </button>
               </li>
             );
           })

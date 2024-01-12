@@ -8,6 +8,7 @@ interface State {
     categories: Category[];
     ingredients: Ingredient[];
     recipe: Recipe;
+    shoppingList: string[];
   };
 }
 
@@ -17,3 +18,4 @@ export const selectRecipes = (state: State) => state.recipes.recipes;
 export const selectRecipe = (state: State) => state.recipes.recipe;
 export const selectCategories = (state: State) => state.recipes.categories;
 export const selectIngredients = (state: State) => state.recipes.ingredients;
+export const selectShoppingList = (state: State) => state.recipes.shoppingList;

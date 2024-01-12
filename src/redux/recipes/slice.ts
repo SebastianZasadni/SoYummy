@@ -8,6 +8,9 @@ import {
   addRecipe,
   fetchPopularRecipes,
   fetchRecipeById,
+  fetchShopingList,
+  addIngredientToShoppingList,
+  deleteIngredientFromShoppingList,
 } from "./operations";
 
 export interface IngredientInRecipes {
@@ -52,6 +55,7 @@ export interface RecipesIntitialState {
   recipes: Recipe[];
   ingredients: Ingredient[];
   categories: Category[];
+  shoppingList: string[];
 }
 
 const initialState: RecipesIntitialState = {
@@ -61,6 +65,7 @@ const initialState: RecipesIntitialState = {
   ingredients: [],
   isLoading: false,
   error: null,
+  shoppingList: [],
 };
 
 const handlePending = (state: RecipesIntitialState) => {
@@ -137,7 +142,31 @@ const recipesSlice = createSlice({
         Notiflix.Loading.remove();
         state.error = null;
         state.recipe = action.payload[0];
-      });
+      })
+      .addCase(fetchShopingList.rejected, handleRejected)
+      .addCase(fetchShopingList.pending, handlePending)
+      .addCase(fetchShopingList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.shoppingList = action.payload;
+      })
+      .addCase(addIngredientToShoppingList.rejected, handleRejected)
+      .addCase(addIngredientToShoppingList.pending, handlePending)
+      .addCase(addIngredientToShoppingList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.shoppingList = action.payload;
+      })
+      .addCase(deleteIngredientFromShoppingList.rejected, handleRejected)
+      .addCase(deleteIngredientFromShoppingList.pending, handlePending)
+      .addCase(deleteIngredientFromShoppingList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.shoppingList = action.payload;
+      })
   },
 });
 
