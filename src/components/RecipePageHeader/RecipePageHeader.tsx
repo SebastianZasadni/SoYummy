@@ -17,7 +17,7 @@ export const RecipePageHeader = () => {
 
   const { favorites } = recipe;
 
-  const isInFavorite = (id: string | undefined): boolean => {
+  const isInFavorite = (id: string | null | undefined): boolean => {
     return favorites && !!favorites.find((favorite) => favorite === id);
   };
 

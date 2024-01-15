@@ -4,7 +4,7 @@ import { register, login, logout, refreshUser } from "./operations";
 
 export interface authIntitialStateType {
   user: {
-    id: number | null | undefined;
+    id: string | null | undefined;
     username: string | null;
     email: string | null;
   };
