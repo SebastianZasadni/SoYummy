@@ -1,0 +1,28 @@
+.favoritePageWrapper {
+  padding: 0px 16px;
+}
+.favoritePageHeading {
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  color: #001833;
+}
+@media screen and (min-width: 768px) {
+  .favoritePageWrapper {
+    padding: 0px 32px;
+  }
+  .favoritePageHeading {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favoritePageWrapper {
+    padding: 0px 100px;
+  }
+  .favoritePageHeading {
+    font-size: 44px;
+    line-height: 4px;
+  }
+}
