@@ -31,7 +31,7 @@ const CategoriesPage = () => {
     <div className={css.categoriesPageWrapper}>
       <h1 className={css.categoriesPageHeading}>Categories</h1>
       <ul className={css.categoriesList}>
-        {categories.map((category) => {
+        {categories && categories.map((category) => {
           return (
             <li className={css.categoriesListItem} key={category.thumb}>
               <NavLink
