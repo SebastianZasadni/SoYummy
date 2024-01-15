@@ -16,12 +16,12 @@ export const Nav = () => {
           </NavLink>
         </li>
         <li className={css.navListItem}>
-          <NavLink to="/" className={css.navListLink}>
+          <NavLink to="/my-recipes" className={css.navListLink}>
             My recipes
           </NavLink>
         </li>
         <li className={css.navListItem}>
-          <NavLink to="/" className={css.navListLink}>
+          <NavLink to="/favorites" className={css.navListLink}>
             Favorite
           </NavLink>
         </li>

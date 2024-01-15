@@ -14,6 +14,8 @@ import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage";
+import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage";
+import FavoritePage from "./pages/FavoritesPage/FavoritesPage";
 
 const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
 // const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -62,6 +64,8 @@ const App = () => {
           <Route path="add" element={<AddRecipePage />} />
           <Route path="recipe/:recipeId" element={<RecipePage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
+          <Route path="my-recipes" element={<MyRecipesPage />} />
+          <Route path="favorites" element={<FavoritePage />} />
         </Route>
         <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>

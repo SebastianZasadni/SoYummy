@@ -28,12 +28,12 @@ const MenuList = () => {
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
+        <NavLink to="/my-recipes" className={css.menuListLink} onClick={handleClick}>
           My recipes
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
+        <NavLink to="/favorites" className={css.menuListLink} onClick={handleClick}>
           Favorites
         </NavLink>
       </li>
