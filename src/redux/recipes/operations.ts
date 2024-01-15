@@ -147,9 +147,26 @@ export const fetchShopingList = createAsyncThunk(
 
 export const addIngredientToShoppingList = createAsyncThunk(
   "recipes/addIngredientToShoppingList",
-  async ({ id }: { id: string | undefined }, thunkAPI) => {
+  async (
+    {
+      id,
+      measure,
+      title,
+      thumb,
+    }: {
+      id: string | undefined;
+      measure: string | undefined;
+      title: string | undefined;
+      thumb: string | undefined;
+    },
+    thunkAPI
+  ) => {
     try {
-      const response = await axios.get(`/ingredients/shopping-list/${id}`);
+      const response = await axios.post(`/ingredients/shopping-list/${id}`, {
+        measure,
+        title,
+        thumb,
+      });
       return response.data.data;
     } catch (e: any) {
       return thunkAPI.rejectWithValue(e.message);

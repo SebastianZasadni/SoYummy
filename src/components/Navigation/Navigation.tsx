@@ -38,7 +38,7 @@ const MenuList = () => {
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
+        <NavLink to="/shopping-list" className={css.menuListLink} onClick={handleClick}>
           Shopping list
         </NavLink>
       </li>

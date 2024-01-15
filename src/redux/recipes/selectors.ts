@@ -1,4 +1,11 @@
-import { Category, Ingredient, Recipe } from "./slice";
+import { Category, Ingredient, IngredientInRecipes, Recipe } from "./slice";
+
+interface IngredientInShoppingList {
+  title: string;
+  thumb: string;
+  measure: string;
+  id: string;
+}
 
 interface State {
   recipes: {
@@ -8,7 +15,7 @@ interface State {
     categories: Category[];
     ingredients: Ingredient[];
     recipe: Recipe;
-    shoppingList: string[];
+    shoppingList: IngredientInShoppingList[];
   };
 }
 

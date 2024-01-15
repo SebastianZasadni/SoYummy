@@ -26,7 +26,7 @@ export const Nav = () => {
           </NavLink>
         </li>
         <li className={css.navListItem}>
-          <NavLink to="/" className={css.navListLink}>
+          <NavLink to="/shopping-list" className={css.navListLink}>
             Shopping list
           </NavLink>
         </li>

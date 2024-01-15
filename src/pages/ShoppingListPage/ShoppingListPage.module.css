@@ -1,0 +1,19 @@
+.shoppingListPageWrapper {
+  padding: 50px 16px 100px 16px;
+}
+.shoppingListPageHeading {
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #001833;
+}
+@media screen and (min-width: 768px) {
+  .shoppingListPageWrapper {
+    padding: 72px 32px 200px 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shoppingListPageWrapper {
+    padding: 100px 100px 195px 100px;
+  }
+}

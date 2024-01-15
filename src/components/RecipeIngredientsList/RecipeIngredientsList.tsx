@@ -32,17 +32,19 @@ export const RecipeIngredientsList = () => {
       };
     });
 
-  const isInShoppingList = (id: string | undefined) => {
-    if (shoppingList.find((ingredient) => ingredient === id)) {
-      return true;
-    }
-    return false;
+  const isInShoppingList = (id: string | undefined): boolean => {
+    return !!shoppingList.find((ingredient) => ingredient.id === id);
   };
 
-  const handleClick = async (id: string | undefined) => {
+  const handleClick = async (
+    id: string | undefined,
+    measure: string | undefined,
+    title: string | undefined,
+    thumb: string | undefined
+  ) => {
     isInShoppingList(id)
       ? dispatch(deleteIngredientFromShoppingList({ id }))
-      : dispatch(addIngredientToShoppingList({ id }));
+      : dispatch(addIngredientToShoppingList({ id, measure, title, thumb }));
   };
 
   return (
@@ -55,7 +57,7 @@ export const RecipeIngredientsList = () => {
       <ul className={css.ingredientsList}>
         {ingredients ? (
           filteredIngredients.map((ingredient, index) => {
-            const { _id, ttl, measure } = ingredient;
+            const { _id, ttl, measure, thb } = ingredient;
             return (
               <li className={css.ingredientsListItem} key={index}>
                 <img src={ingredient.thb} className={css.ingredientImage} />
@@ -63,7 +65,7 @@ export const RecipeIngredientsList = () => {
                 <p className={css.ingredientMeasure}>{measure}</p>
                 <button
                   className={css.ingredientAddButton}
-                  onClick={() => handleClick(_id)}
+                  onClick={() => handleClick(_id, measure, ttl, thb)}
                 >
                   {shoppingList && isInShoppingList(_id) ? (
                     <>
