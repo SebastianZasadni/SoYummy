@@ -18,7 +18,6 @@ const RecipePage = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const { recipeId } = useParams();
-
   const recipe = useSelector(selectRecipe);
 
   useEffect(() => {

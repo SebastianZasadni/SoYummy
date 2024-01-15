@@ -1,4 +1,4 @@
-import { Category, Ingredient, IngredientInRecipes, Recipe } from "./slice";
+import { Category, Ingredient, Recipe } from "./slice";
 
 interface IngredientInShoppingList {
   title: string;
