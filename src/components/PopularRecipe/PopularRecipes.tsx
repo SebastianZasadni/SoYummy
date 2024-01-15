@@ -33,7 +33,10 @@ export const PopularRecipes = () => {
           recipes.slice(0, 4).map((recipe) => {
             return (
               <li className={css.popularRecipesListItem} key={recipe._id}>
-                <NavLink to="/" className={css.popularRecipeLink}>
+                <NavLink
+                  to={`/recipe/${recipe._id}`}
+                  className={css.popularRecipeLink}
+                >
                   <img src={recipe.preview} className={css.recipeImage} />
                   <div className={css.recipeDescriptionBox}>
                     <p className={css.recipeTitle}>{recipe.title}</p>
