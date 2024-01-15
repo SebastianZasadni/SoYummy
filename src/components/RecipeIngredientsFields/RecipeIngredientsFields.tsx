@@ -172,7 +172,7 @@ export const RecipeIngredientsFields = () => {
       <textarea
         name="preparation"
         className={css.recipePreparationField}
-        placeholder="Enter recipe"
+        placeholder="Enter recipe. Next steps of recipe preparations please separate by comma."
       />
     </div>
   );
