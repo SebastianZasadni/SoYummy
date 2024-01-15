@@ -11,6 +11,11 @@ import {
   fetchShopingList,
   addIngredientToShoppingList,
   deleteIngredientFromShoppingList,
+  fetchMyRecipes,
+  deleteRecipe,
+  fetchFavoriteRecipes,
+  deleteRecipeFromFavorites,
+  addRecipeToFavorites,
 } from "./operations";
 
 export interface IngredientInRecipes {
@@ -167,6 +172,47 @@ const recipesSlice = createSlice({
         state.error = null;
         state.shoppingList = action.payload;
       })
+      .addCase(fetchMyRecipes.rejected, handleRejected)
+      .addCase(fetchMyRecipes.pending, handlePending)
+      .addCase(fetchMyRecipes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes = action.payload;
+      })
+      .addCase(deleteRecipe.rejected, handleRejected)
+      .addCase(deleteRecipe.pending, handlePending)
+      .addCase(deleteRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes = action.payload;
+      })
+      .addCase(fetchFavoriteRecipes.rejected, handleRejected)
+      .addCase(fetchFavoriteRecipes.pending, handlePending)
+      .addCase(fetchFavoriteRecipes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes = action.payload;
+      })
+      .addCase(addRecipeToFavorites.rejected, handleRejected)
+      .addCase(addRecipeToFavorites.pending, handlePending)
+      .addCase(addRecipeToFavorites.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipe = action.payload;
+      })
+      .addCase(deleteRecipeFromFavorites.rejected, handleRejected)
+      .addCase(deleteRecipeFromFavorites.pending, handlePending)
+      .addCase(deleteRecipeFromFavorites.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipe = action.payload.updatedRecipe;
+        state.recipes = action.payload.allFavoritesRecipes;
+      });
   },
 });
 
