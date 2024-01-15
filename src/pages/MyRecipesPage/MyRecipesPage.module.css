@@ -1,0 +1,28 @@
+.myRecipesPageWrapper {
+  padding: 0px 16px;
+}
+.myRecipesPageHeading {
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  color: #001833;
+}
+@media screen and (min-width: 768px) {
+  .myRecipesPageWrapper {
+    padding: 0px 32px;
+  }
+  .myRecipesPageHeading {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .myRecipesPageWrapper {
+    padding: 0px 100px;
+  }
+  .myRecipesPageHeading {
+    font-size: 44px;
+    line-height: 4px;
+  }
+}
