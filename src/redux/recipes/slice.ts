@@ -16,6 +16,8 @@ import {
   fetchFavoriteRecipes,
   deleteRecipeFromFavorites,
   addRecipeToFavorites,
+  fetchRecipesByQuery,
+  fetchRecipesByIngredients,
 } from "./operations";
 
 export interface IngredientInRecipes {
@@ -212,6 +214,22 @@ const recipesSlice = createSlice({
         state.error = null;
         state.recipe = action.payload.updatedRecipe;
         state.recipes = action.payload.allFavoritesRecipes;
+      })
+      .addCase(fetchRecipesByQuery.rejected, handleRejected)
+      .addCase(fetchRecipesByQuery.pending, handlePending)
+      .addCase(fetchRecipesByQuery.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes = action.payload;
+      })
+      .addCase(fetchRecipesByIngredients.rejected, handleRejected)
+      .addCase(fetchRecipesByIngredients.pending, handlePending)
+      .addCase(fetchRecipesByIngredients.fulfilled, (state, action) => {
+        state.isLoading = false;
+        Notiflix.Loading.remove();
+        state.error = null;
+        state.recipes = action.payload;
       });
   },
 });

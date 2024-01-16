@@ -43,7 +43,7 @@ const MenuList = () => {
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/" className={css.menuListLink} onClick={handleClick}>
+        <NavLink to="/search" className={css.menuListLink} onClick={handleClick}>
           <img
             src="/assets/icon-search.png"
             alt="loupe"

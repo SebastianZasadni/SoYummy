@@ -7,7 +7,7 @@ import { fetchRecipesMainPage } from "../../redux/recipes/operations";
 import { selectIsLoading } from "../../redux/recipes/selectors";
 import { ChooseYourBreakfast } from "../../components/ChooseYourBreakfast/ChooseYourBreakfast";
 import { PreviewCategories } from "../../components/PreviewCategories/PreviewCategories";
-import { Search } from "../../components/Search/Search";
+import { SearchFormMainPage } from "../../components/SearchForm/SearchFormMainPage";
 import css from "./MainPage.module.css";
 import { reset } from "../../redux/recipes/slice";
 
@@ -23,7 +23,16 @@ const MainPage = () => {
 
   return (
     <div className={css.mainpageWrapper}>
-      <Search />
+      <div className={css.sectionSearch}>
+        <h1 className={css.sectionSearchHeading}>
+          <span className={css.green}>So</span>Yummy
+        </h1>
+        <p className={css.sectionSearchDescription}>
+          "What to cook?" is not only a recipe app, it is, in fact, your
+          cookbook. You can add your own recipes to save them for the future."
+        </p>
+        <SearchFormMainPage />
+      </div>
       <ChooseYourBreakfast />
       {!isLoading && !isError && <PreviewCategories />}
     </div>

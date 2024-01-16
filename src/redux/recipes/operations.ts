@@ -245,3 +245,28 @@ export const deleteRecipeFromFavorites = createAsyncThunk(
     }
   }
 );
+
+export const fetchRecipesByQuery = createAsyncThunk(
+  "recipes/fetchRecipesByQuery",
+  async ({ query }: { query: string | null }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/search?query=${query}`);
+      return response.data.data;
+    } catch (e: any) {
+      console.log(e)
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const fetchRecipesByIngredients = createAsyncThunk(
+  "recipes/fetchRecipesByIngredients",
+  async ({ query }: { query: string | null }, thunkAPI) => {
+    try {
+      const response = await axios.get(`/ingredients/?ingredient=${query}`);
+      return response.data.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

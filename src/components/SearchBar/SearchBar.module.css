@@ -1,0 +1,80 @@
+.searchBarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formSearch {
+  margin-top: 50px;
+  display: flex;
+  width: 295px;
+}
+.formInput {
+  outline: none;
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+  width: 235px;
+  height: 52px;
+  position: absolute;
+  border-radius: 24px 44px;
+  padding-left: 32px;
+  color: #bdbdbd;
+  font-size: 12px;
+  line-height: 18px;
+}
+.formButton {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 17px 31px;
+  border-radius: 24px 44px;
+  background-color: var(--main-green);
+  position: relative;
+  left: 60%;
+  color: var(--main-white);
+}
+.selectLabel {
+  margin-top: 24px;
+  display: flex;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #001833;
+  gap: 15px;
+  align-items: center;
+}
+.select {
+  border-radius: 10px;
+  padding-left: 10px;
+  width: 146px;
+  height: 34px;
+  font-size: 12px;
+  line-height: 18px;
+  border-color: var(--main-grey);
+}
+@media screen and (min-width: 768px) {
+  .formSearch {
+    margin-left: 32px;
+    margin-top: 32px;
+    width: 369px;
+  }
+  .formButton {
+    padding: 18px 52px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .formSearch {
+    margin-top: 50px;
+    width: 510px;
+    margin-left: 100px;
+  }
+  .formInput {
+    width: 400px;
+    height: 71px;
+  }
+  .formButton {
+    padding: 26px 52px;
+    left: 70%;
+    width: 161px;
+  }
+}

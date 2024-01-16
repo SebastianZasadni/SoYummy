@@ -16,6 +16,7 @@ import RecipePage from "./pages/RecipePage/RecipePage";
 import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage";
 import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage";
 import FavoritePage from "./pages/FavoritesPage/FavoritesPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
 // const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -66,6 +67,7 @@ const App = () => {
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="my-recipes" element={<MyRecipesPage />} />
           <Route path="favorites" element={<FavoritePage />} />
+          <Route path="search" element={<SearchPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>
