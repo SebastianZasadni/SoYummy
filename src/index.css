@@ -1,4 +1,6 @@
 :root {
+  --tablet-view: 768px;
+  --desktop-view: 1280px;
   --main-green: #8baa36;
   --main-white: #fafafa;
   --main-black: #1e1f28;

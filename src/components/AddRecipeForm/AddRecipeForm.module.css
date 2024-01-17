@@ -13,8 +13,6 @@
 @media screen and (min-width: 768px) {
   .addRecipeForm__Button {
     padding: 14px 64px;
-  }
-  .addRecipeForm__Button {
     margin: 18px 0;
   }
 }

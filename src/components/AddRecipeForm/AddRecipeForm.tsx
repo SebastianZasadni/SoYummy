@@ -11,38 +11,63 @@ import { AddRecipeProps } from "../../redux/recipes/operations";
 import css from "./AddRecipeForm.module.css";
 
 export const AddRecipeForm = () => {
-  const [image, setImage] = useState<File | null>(null);
+  const [image, setImage] = useState<File>();
   const dispatch: AppDispatch = useDispatch();
 
   const handleImage = (image: File | null) => {
+    if (!image) return;
     setImage(image);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const form = e.currentTarget;
-    const title = form.recipeName.value;
-    const about = form.about.value;
-    const category = form.category.value;
-    const time = form.time.value;
-    const preparation = form.preparation.value;
+    const { recipeName, about, category, time, preparation } = form;
+    const titleValue = recipeName.value;
+    const aboutValue = about.value;
+    const categoryValue = category.value;
+    const timeValue = time.value;
+    const preparationValue = preparation.value;
 
     const { ingredientsNodeList, quantityNodeList, measureNodeList } =
       e.currentTarget;
 
+    const ingredientsValuesArray: string[] = [];
+
+    ingredientsNodeList.length &&
+      ingredientsNodeList.forEach((ingredient: Element) => {
+        const value = (ingredient as HTMLInputElement).value;
+        ingredientsValuesArray.push(value);
+      });
+
+    const quantityValuesArray: string[] = [];
+
+    quantityNodeList.length &&
+      quantityNodeList.forEach((ingredient: Element) => {
+        const value = (ingredient as HTMLInputElement).value;
+        quantityValuesArray.push(value);
+      });
+
+    const measureValueArray: string[] = [];
+
+    measureNodeList.length &&
+      measureNodeList.forEach((ingredient: Element) => {
+        const value = (ingredient as HTMLInputElement).value;
+        measureValueArray.push(value);
+      });
+
     const ingredientsArray: string[] = !ingredientsNodeList.length
       ? [ingredientsNodeList.value]
-      : Array.from(ingredientsNodeList).map(
-          (ingredient: any) => ingredient.value
-        );
+      : ingredientsValuesArray.map((ingredient) => ingredient);
 
     const quantity = !quantityNodeList.length
       ? [quantityNodeList.value]
-      : Array.from(quantityNodeList).map((quantity: any) => quantity.value);
+      : quantityValuesArray.map((quantity) => quantity);
 
     const measure = !measureNodeList.length
       ? [measureNodeList.value]
-      : Array.from(measureNodeList).map((measure: any) => measure.value);
+      : measureValueArray.map((measure) => measure);
 
     const ingredients = ingredientsArray.map((ingredient, index) => ({
       id: ingredient,
@@ -50,43 +75,41 @@ export const AddRecipeForm = () => {
     }));
 
     if (
-      !title ||
-      !about ||
-      !category ||
-      !time ||
-      !preparation ||
+      !titleValue ||
+      !aboutValue ||
+      !categoryValue ||
+      !timeValue ||
+      !preparationValue ||
       !measure ||
       quantity.includes("") ||
       !ingredients
     ) {
       return Notify.failure("Please fill all of fields");
-    } else if (!image) {
+    }
+    if (!image) {
       return Notify.failure("Please add an image");
     }
+
     const data = new FormData();
     data.append("image", image);
 
-    try {
-      const res = await axios.post(
-        "https://soyummy-api.onrender.com/api/upload",
-        data
-      );
-      const thumb = res.data;
-      const credentials: AddRecipeProps = {
-        title: form.recipeName.value,
-        about: form.about.value,
-        category: form.category.value,
-        time: form.time.value,
-        preparation: form.preparation.value,
-        thumb,
-        ingredients,
-      };
+    const res = await axios.post(
+      "https://soyummy-api.onrender.com/api/upload",
+      data
+    );
+    const thumb = res.data;
+    const credentials: AddRecipeProps = {
+      title: titleValue,
+      about: aboutValue,
+      category: categoryValue,
+      time: timeValue,
+      preparation: preparationValue,
+      thumb,
+      ingredients,
+    };
 
-      await dispatch(addRecipe(credentials));
-      form.reset();
-    } catch (error) {
-      Notify.failure("An error occurred while uploading image.");
-    }
+    await dispatch(addRecipe(credentials));
+    form.reset();
   };
 
   return (
