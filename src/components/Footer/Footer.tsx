@@ -3,9 +3,6 @@ import { Nav } from "../Nav/Nav";
 import { SubscribeForm } from "../SubscribeForm/SubscribeForm";
 import { FollowUs } from "../FollowUs/FollowUs";
 
-const isMobile = window.innerWidth < 768;
-const isTablet = window.innerWidth < 1279;
-
 export const Footer = () => {
   return (
     <div className={css.footerContainer}>
