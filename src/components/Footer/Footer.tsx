@@ -9,23 +9,18 @@ const isTablet = window.innerWidth < 1279;
 export const Footer = () => {
   return (
     <div className={css.footerContainer}>
-      {isMobile ? (
-        <img
-          src="/assets/layout-background-middle_mobile.png"
-          className={css.middleBackgroundImg}
-        />
-      ) : isTablet ? (
-        <img
-          src="/assets/layout-background-middle_tablet.png"
-          className={css.middleBackgroundImg}
-        />
-      ) : (
-        <img
-          src="/assets/layout-background-middle_desktop.png"
-          className={css.middleBackgroundImg}
-        />
-      )}
-
+      <img
+        src="/assets/layout-background-middle_mobile.png"
+        className={css.middleBackgroundImgMobile}
+      />
+      <img
+        src="/assets/layout-background-middle_tablet.png"
+        className={css.middleBackgroundImgTablet}
+      />
+      <img
+        src="/assets/layout-background-middle_desktop.png"
+        className={css.middleBackgroundImgDesktop}
+      />
       <div className={css.footerWrapper}>
         <div className={css.footerLogoAndListBox}>
           <div className={css.footerLogo}>
