@@ -43,6 +43,8 @@
 .iconMinus {
   width: 14px;
   height: 14px;
+  stroke: #333333;
+  stroke-opacity: 0.3;
 }
 .reactSelect {
   color: #000;

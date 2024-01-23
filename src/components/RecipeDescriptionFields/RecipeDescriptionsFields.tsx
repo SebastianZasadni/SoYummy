@@ -30,8 +30,8 @@ export const RecipeDescriptionField = ({ onImageChange }: Props) => {
 
   const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const image = e.target.files && e.target.files[0];
-    onImageChange(image);
     if (image) {
+      onImageChange(image);
       const url = URL.createObjectURL(image);
       setImageUrl(url);
     }
