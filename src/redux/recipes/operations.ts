@@ -19,21 +19,13 @@ export interface AddRecipeProps {
 }
 
 axios.defaults.baseURL = "https://soyummy-api.onrender.com/api/";
+// axios.defaults.baseURL = "http://localhost:3000/api/";
 
 export const fetchRecipesMainPage = createAsyncThunk(
   "recipes/fetchMainPage",
   async (_, thunkAPI) => {
     try {
-      const screenSize = window.innerWidth;
-      let limit;
-      if (screenSize < 768) {
-        limit = 1;
-      } else if (screenSize < 1280) {
-        limit = 2;
-      } else {
-        limit = 4;
-      }
-      const response = await axios.get(`/recipes/main-page/${limit}`);
+      const response = await axios.get(`/recipes/main-page/4`);
       return response.data.data;
     } catch (e: any) {
       return thunkAPI.rejectWithValue(e.message);

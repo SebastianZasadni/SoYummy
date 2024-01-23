@@ -14,7 +14,6 @@ import { reset } from "../../redux/recipes/slice";
 const CategoriesPage = () => {
   const [searchParams] = useSearchParams();
   const dispatch: AppDispatch = useDispatch();
-
   const categories = useSelector(selectCategories);
   const recipes = useSelector(selectRecipes);
 
@@ -31,28 +30,29 @@ const CategoriesPage = () => {
     <div className={css.categoriesPageWrapper}>
       <h1 className={css.categoriesPageHeading}>Categories</h1>
       <ul className={css.categoriesList}>
-        {categories && categories.map((category) => {
-          return (
-            <li className={css.categoriesListItem} key={category.thumb}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? `${css.categoryTitleActive}`
-                    : `${css.categoryTitle}`
-                }
-                to={`/category/${category.title.toLowerCase()}/?page=1`}
-              >
-                {category.title}
-              </NavLink>
-            </li>
-          );
-        })}
+        {categories &&
+          categories.map((category) => {
+            return (
+              <li className={css.categoriesListItem} key={category.thumb}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${css.categoryTitleActive}`
+                      : `${css.categoryTitle}`
+                  }
+                  to={`/category/${category.title.toLowerCase()}/?page=1`}
+                >
+                  {category.title}
+                </NavLink>
+              </li>
+            );
+          })}
       </ul>
       <ul className={css.recipesList}>
         {recipes.map((recipe) => {
           return (
             <li className={css.recipesListItem} key={recipe._id}>
-              <RecipeItem recipe={recipe} />;
+              <RecipeItem recipe={recipe} />
             </li>
           );
         })}

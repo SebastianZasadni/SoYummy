@@ -22,7 +22,7 @@ const MainPage = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.mainpageWrapper}>
+    <div className={css.mainPageWrapper}>
       <div className={css.sectionSearch}>
         <h1 className={css.sectionSearchHeading}>
           <span className={css.green}>So</span>Yummy

@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
-import css from "./PreviewCategories.module.css";
+import { useState, useEffect } from "react";
 import { selectRecipes } from "../../redux/recipes/selectors";
 import { Recipe } from "../../redux/recipes/slice";
-import { RecipeItem } from "../RecipeItem/RecipeItem";
 import { NavLink } from "react-router-dom";
+import { RecipeItem } from "../RecipeItem/RecipeItem";
+import css from "./PreviewCategories.module.css";
 
 export const PreviewCategories = () => {
-  
+  const [visibleRecipes, setVisibleRecipes] = useState(4); // Domyślnie wyświetl 4 przepisy
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const recipes = useSelector(selectRecipes);
   const breakfastRecipes = recipes.filter(
     (recipe: Recipe) => recipe.category.toLowerCase() === "breakfast"
@@ -20,12 +23,33 @@ export const PreviewCategories = () => {
   const dessertsRecipes = recipes.filter(
     (recipe: Recipe) => recipe.category.toLowerCase() === "dessert"
   );
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    if (windowWidth < 600) {
+      setVisibleRecipes(1);
+    } else if (windowWidth < 900) {
+      setVisibleRecipes(2);
+    } else {
+      setVisibleRecipes(4);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowWidth]);
+
   return (
     <div className={css.mainRecipesWrapper}>
       <ul className={css.mainPageRecipesList}>
         <p className={css.recipeCategorie}>Breakfast</p>
         <li className={css.mainPageRecipesListItem}>
-          {breakfastRecipes.map((recipe) => {
+          {breakfastRecipes.slice(0, visibleRecipes).map((recipe) => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>
@@ -34,9 +58,11 @@ export const PreviewCategories = () => {
         </NavLink>
         <p className={css.recipeCategorie}>Miscellaneous</p>
         <li className={css.mainPageRecipesListItem}>
-          {miscellaneousRecipes.map((recipe: Recipe) => {
-            return <RecipeItem recipe={recipe} key={recipe._id} />;
-          })}
+          {miscellaneousRecipes
+            .slice(0, visibleRecipes)
+            .map((recipe: Recipe) => {
+              return <RecipeItem recipe={recipe} key={recipe._id} />;
+            })}
         </li>
         <NavLink
           to="/category/miscellaneous?page=1"
@@ -46,7 +72,7 @@ export const PreviewCategories = () => {
         </NavLink>
         <p className={css.recipeCategorie}>Chicken</p>
         <li className={css.mainPageRecipesListItem}>
-          {chickenRecipes.map((recipe: Recipe) => {
+          {chickenRecipes.slice(0, visibleRecipes).map((recipe: Recipe) => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>
@@ -55,7 +81,7 @@ export const PreviewCategories = () => {
         </NavLink>
         <p className={css.recipeCategorie}>Desserts</p>
         <li className={css.mainPageRecipesListItem}>
-          {dessertsRecipes.map((recipe: Recipe) => {
+          {dessertsRecipes.slice(0, visibleRecipes).map((recipe: Recipe) => {
             return <RecipeItem recipe={recipe} key={recipe._id} />;
           })}
         </li>

@@ -39,7 +39,6 @@
   .sectionSearch {
     max-width: 1280px;
     align-items: flex-start;
-    /* padding-bottom: 267px; */
     background-image: url("/assets/search-background-topleft_tablet.png"),
       url("/assets/search-background-center_tablet.png"),
       url("/assets/search-background-bottomright_tablet.png"),
