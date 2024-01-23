@@ -11,6 +11,7 @@ interface AuthStateType {
 }
 
 axios.defaults.baseURL = "https://soyummy-api.onrender.com/api/";
+// axios.defaults.baseURL = "http://localhost:3000/api/";
 
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -51,7 +52,7 @@ export const login = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
   try {
     await axios.get("/users/logout");
     Notify.success("Logged out successfully.");
@@ -75,6 +76,36 @@ export const refreshUser = createAsyncThunk(
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const uploadImage = createAsyncThunk(
+  "auth/uploadImage",
+  async ({ image }: { image: string }, thunkAPI) => {
+    try {
+      const response = await axios.post("/users/uploadImage", {
+        image,
+      });
+      Notify.success("Your image has been uploaded");
+      return response.data.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const updateUsername = createAsyncThunk(
+  "auth/updateUsername",
+  async ({ username }: { username: string }, thunkAPI) => {
+    try {
+      const response = await axios.post("/users/updateUsername", {
+        username,
+      });
+      Notify.success("Your name has been uploaded");
+      return response.data.data;
+    } catch (e: any) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

@@ -1,0 +1,50 @@
+.userLogoModalWrapper {
+  border-radius: 8px;
+  background-color: var(--main-white);
+  border: 1px solid var(--main-green);
+  padding: 18px;
+  position: absolute;
+  right: 60px;
+  z-index: 1;
+}
+.editProfileButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.editProfileText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+}
+.editProfileIcon {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  padding: 0;
+  fill: var(--main-white);
+  stroke: #23262a;
+}
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 12px 27px;
+  background-color: var(--main-green);
+  border-radius: 24px 44px;
+  margin-top: 28px;
+  cursor: pointer;
+}
+.logoutBtnText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--main-white);
+}
+.logoutBtnIcon {
+  width: 15px;
+  height: 15px;
+  stroke: var(--main-white);
+}

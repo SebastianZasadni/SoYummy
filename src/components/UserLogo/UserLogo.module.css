@@ -2,10 +2,12 @@
   display: flex;
   gap: 14px;
   align-items: center;
+  cursor: pointer;
 }
 .userLogo {
   width: 34px;
   height: 34px;
+  border-radius: 50%;
 }
 .userName {
   margin: 0;

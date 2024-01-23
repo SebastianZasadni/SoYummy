@@ -1,12 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Notiflix from "notiflix";
-import { register, login, logout, refreshUser } from "./operations";
+import {
+  register,
+  login,
+  logout,
+  refreshUser,
+  uploadImage,
+  updateUsername,
+} from "./operations";
 
 export interface authIntitialStateType {
   user: {
     id: string | null | undefined;
     username: string | null;
     email: string | null;
+    thumb: string | undefined;
   };
   token: string | null;
   isRefreshing: boolean;
@@ -33,6 +41,7 @@ const initialState: authIntitialStateType = {
     username: null,
     email: null,
     id: null,
+    thumb: undefined,
   },
 };
 
@@ -51,6 +60,7 @@ const authSlice = createSlice({
         state.user.email = action.payload.user.email;
         state.user.id = action.payload.user.id;
         state.user.username = action.payload.user.username;
+        state.user.thumb = action.payload.user.thumb;
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.error = null;
@@ -75,6 +85,7 @@ const authSlice = createSlice({
           state.user.id = action.payload.id;
           state.user.username = action.payload.name;
           state.token = action.payload.token;
+          state.user.thumb = action.payload.thumb;
           state.isLoggedIn = true;
           state.isRefreshing = false;
           state.error = null;
@@ -92,7 +103,29 @@ const authSlice = createSlice({
       })
       .addCase(logout.pending, handlePending)
       .addCase(login.pending, handlePending)
-      .addCase(register.pending, handlePending);
+      .addCase(register.pending, handlePending)
+      .addCase(uploadImage.pending, handlePending)
+      .addCase(
+        uploadImage.fulfilled,
+        (state: authIntitialStateType, action) => {
+          state.user.thumb = action.payload;
+          state.isRefreshing = false;
+          state.error = null;
+          Notiflix.Loading.remove();
+        }
+      )
+      .addCase(uploadImage.rejected, handleRejected)
+      .addCase(updateUsername.pending, handlePending)
+      .addCase(
+        updateUsername.fulfilled,
+        (state: authIntitialStateType, action) => {
+          state.user.username = action.payload;
+          state.isRefreshing = false;
+          state.error = null;
+          Notiflix.Loading.remove();
+        }
+      )
+      .addCase(updateUsername.rejected, handleRejected);
   },
 });
 

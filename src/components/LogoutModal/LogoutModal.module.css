@@ -1,0 +1,64 @@
+.modalLogoutWrapper {
+  border-radius: 30px;
+  background-color: var(--main-white);
+  box-shadow: 0px 4px 48px 0px #0000001a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+  padding: 44px 24px;
+}
+.logoutWarningText {
+  color: #23262a;
+  font-size: 14px;
+  line-height: 18px;
+}
+.buttonYes {
+  color: var(--main-white);
+  background-color: var(--main-green);
+  cursor: pointer;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 18px;
+  width: 137px;
+}
+.buttonNo {
+  width: 137px;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 6px;
+  border: none;
+  color: #23262a;
+  background-color: #d9d9d9;
+  padding: 14px 18px;
+}
+.buttonsBox {
+  display: flex;
+  gap: 8px;
+}
+@media screen and (min-width: 768px) {
+  .modalLogoutWrapper {
+    padding: 50px 40px;
+  }
+  .buttonsBox {
+    gap: 16px;
+  }
+  .buttonYes,
+  .buttonNo {
+    width: 192px;
+    height: 59px;
+    padding: 21px 39px;
+  }
+  .logoutWarningText {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
