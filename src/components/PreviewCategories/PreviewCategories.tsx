@@ -31,9 +31,9 @@ export const PreviewCategories = () => {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
-    if (windowWidth < 600) {
+    if (windowWidth < 768) {
       setVisibleRecipes(1);
-    } else if (windowWidth < 900) {
+    } else if (windowWidth < 1280) {
       setVisibleRecipes(2);
     } else {
       setVisibleRecipes(4);

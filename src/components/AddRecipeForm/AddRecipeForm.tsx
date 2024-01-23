@@ -35,27 +35,24 @@ export const AddRecipeForm = () => {
 
     const ingredientsValuesArray: string[] = [];
 
-    ingredientsNodeList.length &&
-      ingredientsNodeList.forEach((ingredient: Element) => {
-        const value = (ingredient as HTMLInputElement).value;
-        ingredientsValuesArray.push(value);
-      });
+    ingredientsNodeList.forEach((ingredient: Element) => {
+      const value = (ingredient as HTMLInputElement).value;
+      ingredientsValuesArray.push(value);
+    });
 
     const quantityValuesArray: string[] = [];
 
-    quantityNodeList.length &&
-      quantityNodeList.forEach((ingredient: Element) => {
-        const value = (ingredient as HTMLInputElement).value;
-        quantityValuesArray.push(value);
-      });
+    quantityNodeList.forEach((ingredient: Element) => {
+      const value = (ingredient as HTMLInputElement).value;
+      quantityValuesArray.push(value);
+    });
 
     const measureValueArray: string[] = [];
 
-    measureNodeList.length &&
-      measureNodeList.forEach((ingredient: Element) => {
-        const value = (ingredient as HTMLInputElement).value;
-        measureValueArray.push(value);
-      });
+    measureNodeList.forEach((ingredient: Element) => {
+      const value = (ingredient as HTMLInputElement).value;
+      measureValueArray.push(value);
+    });
 
     const ingredientsArray: string[] = !ingredientsNodeList.length
       ? [ingredientsNodeList.value]
