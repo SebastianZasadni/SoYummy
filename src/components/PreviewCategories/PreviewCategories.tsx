@@ -5,9 +5,10 @@ import { Recipe } from "../../redux/recipes/slice";
 import { NavLink } from "react-router-dom";
 import { RecipeItem } from "../RecipeItem/RecipeItem";
 import css from "./PreviewCategories.module.css";
+import { PreviewCategoriesListItem } from "../PreviewCategoriesListItem/PreviewCategoriesListItem";
 
 export const PreviewCategories = () => {
-  const [visibleRecipes, setVisibleRecipes] = useState(4); // Domyślnie wyświetl 4 przepisy
+  const [visibleRecipes, setVisibleRecipes] = useState(4);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const recipes = useSelector(selectRecipes);
@@ -47,47 +48,18 @@ export const PreviewCategories = () => {
   return (
     <div className={css.mainRecipesWrapper}>
       <ul className={css.mainPageRecipesList}>
-        <p className={css.recipeCategorie}>Breakfast</p>
-        <li className={css.mainPageRecipesListItem}>
-          {breakfastRecipes.slice(0, visibleRecipes).map((recipe) => {
-            return <RecipeItem recipe={recipe} key={recipe._id} />;
-          })}
-        </li>
-        <NavLink to="/category/breakfast?page=1" className={css.seeAllButton}>
-          See all
-        </NavLink>
-        <p className={css.recipeCategorie}>Miscellaneous</p>
-        <li className={css.mainPageRecipesListItem}>
-          {miscellaneousRecipes
-            .slice(0, visibleRecipes)
-            .map((recipe: Recipe) => {
-              return <RecipeItem recipe={recipe} key={recipe._id} />;
-            })}
-        </li>
-        <NavLink
-          to="/category/miscellaneous?page=1"
-          className={css.seeAllButton}
-        >
-          See all
-        </NavLink>
-        <p className={css.recipeCategorie}>Chicken</p>
-        <li className={css.mainPageRecipesListItem}>
-          {chickenRecipes.slice(0, visibleRecipes).map((recipe: Recipe) => {
-            return <RecipeItem recipe={recipe} key={recipe._id} />;
-          })}
-        </li>
-        <NavLink to="/category/chicken?page=1" className={css.seeAllButton}>
-          See all
-        </NavLink>
-        <p className={css.recipeCategorie}>Desserts</p>
-        <li className={css.mainPageRecipesListItem}>
-          {dessertsRecipes.slice(0, visibleRecipes).map((recipe: Recipe) => {
-            return <RecipeItem recipe={recipe} key={recipe._id} />;
-          })}
-        </li>
-        <NavLink to="/category/desserts?page=1" className={css.seeAllButton}>
-          See all
-        </NavLink>
+        <PreviewCategoriesListItem
+          recipes={breakfastRecipes.slice(0, visibleRecipes)}
+        />
+        <PreviewCategoriesListItem
+          recipes={miscellaneousRecipes.slice(0, visibleRecipes)}
+        />
+        <PreviewCategoriesListItem
+          recipes={chickenRecipes.slice(0, visibleRecipes)}
+        />
+        <PreviewCategoriesListItem
+          recipes={dessertsRecipes.slice(0, visibleRecipes)}
+        />
       </ul>
       <NavLink
         to="/category/beef/?page=1"
