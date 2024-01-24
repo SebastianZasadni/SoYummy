@@ -26,9 +26,9 @@
 .recipesList {
   margin-top: 32px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   gap: 28px;
+  align-items: center;
 }
 @media screen and (min-width: 768px) {
   .categoriesPageHeading {
@@ -44,9 +44,10 @@
   }
   .recipesList {
     margin-top: 50px;
-    gap: 32px;
+    gap: 16px;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   .recipeListItem {
     flex-basis: calc((100% - 32px) / 2);
