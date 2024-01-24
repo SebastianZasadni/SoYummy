@@ -31,20 +31,6 @@
 .seeAllButton:focus {
   color: var(--secondary-black);
 }
-.otherCategoriesButton {
-  background-color: transparent;
-  padding: 14px 32px;
-  color: var(--secondary-black);
-  border-radius: 24px 44px;
-  border: 2px solid var(--main-green);
-  font-size: 14px;
-  line-height: 21px;
-}
-.otherCategoriesButton:focus,
-.otherCategoriesButton:hover {
-  background-color: var(--main-green);
-  color: var(--main-white);
-}
 @media screen and (min-width: 768px) {
   .recipesList {
     gap: 8px;
