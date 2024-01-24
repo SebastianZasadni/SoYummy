@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 import { selectRecipes } from "../../redux/recipes/selectors";
 import { Recipe } from "../../redux/recipes/slice";
 import { NavLink } from "react-router-dom";
-import { RecipeItem } from "../RecipeItem/RecipeItem";
-import css from "./PreviewCategories.module.css";
 import { PreviewCategoriesListItem } from "../PreviewCategoriesListItem/PreviewCategoriesListItem";
+import css from "./PreviewCategories.module.css";
 
 export const PreviewCategories = () => {
   const [visibleRecipes, setVisibleRecipes] = useState(4);
