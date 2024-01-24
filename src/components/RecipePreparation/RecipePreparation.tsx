@@ -3,14 +3,6 @@ import { useSelector } from "react-redux";
 import { selectRecipe } from "../../redux/recipes/selectors";
 import css from "./RecipePreparation.module.css";
 
-// const formatRecipeInstructions = (instructions: string): Instruction[] => {
-//   const steps = instructions.split(". ");
-
-//   return steps.map((step, index) => {
-//     return { id: index + 1, text: step.trim() + '.' };
-//   });
-// };
-
 const formatRecipeInstructions = (text: string) => {
   const doc = nlp(text);
   const sentences = doc.sentences().out("array");
@@ -38,16 +30,15 @@ export const RecipePreparation = () => {
       <div className={css.recipePreparationBox}>
         <h1 className={css.recipePreparationHeading}>Recipe Preparation</h1>
         <ul className={css.recipePreparationList}>
-          {instructions &&
-            formatedInstructions.map((instruction: Instruction) => {
-              const { id, text } = instruction;
-              return (
-                <li className={css.recipePreparationListItem} key={id}>
-                  <div className={css.instructionStep}>{id}</div>
-                  <p className={css.instructionText}>{text}</p>
-                </li>
-              );
-            })}
+          {formatedInstructions.map((instruction: Instruction) => {
+            const { id, text } = instruction;
+            return (
+              <li className={css.recipePreparationListItem} key={id}>
+                <div className={css.instructionStep}>{id}</div>
+                <p className={css.instructionText}>{text}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <img src={thumb} className={css.recipeImage} />
