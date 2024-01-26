@@ -1,17 +1,13 @@
 // middleware/asyncMiddleware.ts
-import Notiflix from 'notiflix';
+import Notiflix from "notiflix";
 
 const asyncMiddleware = (store: any) => (next: any) => (action: any) => {
-  if (action.type.endsWith('/pending')) {
-    // Obsługa akcji pending (rozpoczęcie żądania)
+  if (action.type.endsWith("/pending")) {
     Notiflix.Loading.standard("Loading...");
-  } else if (action.type.endsWith('/fulfilled')) {
-    // Obsługa akcji fulfilled (pomyślne zakończenie żądania)
+  } else if (action.type.endsWith("/fulfilled")) {
     Notiflix.Loading.remove();
-  } else if (action.type.endsWith('/rejected')) {
-    // Obsługa akcji rejected (błąd w trakcie żądania)
+  } else if (action.type.endsWith("/rejected")) {
     Notiflix.Loading.remove();
-    // Dodaj kod obsługi błędu tutaj, jeśli to konieczne
   }
 
   return next(action);
