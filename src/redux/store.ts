@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { recipesReducer } from "./recipes/slice";
 import { globalReducer } from "./global/slice";
+import asyncMiddleware from "../middleware/asyncMiddleware";
 
 const ignoredActions = [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER];
 
@@ -35,7 +36,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions,
       },
-    }),
+    }).concat(asyncMiddleware),
 });
 
 export const persistor = persistStore(store);

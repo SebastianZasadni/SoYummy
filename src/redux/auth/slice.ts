@@ -24,12 +24,10 @@ export interface authIntitialStateType {
 
 const handlePending = (state: authIntitialStateType) => {
   state.error = null;
-  Notiflix.Loading.standard("Loading...");
 };
 
 const handleRejected = (state: authIntitialStateType, action: any) => {
   state.error = action.payload;
-  Notiflix.Loading.remove();
 };
 
 const initialState: authIntitialStateType = {
@@ -53,7 +51,6 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state: authIntitialStateType) => {
         state.error = null;
-        Notiflix.Loading.remove();
       })
       .addCase(register.rejected, handleRejected)
       .addCase(login.fulfilled, (state: authIntitialStateType, action) => {
@@ -64,7 +61,6 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.error = null;
-        Notiflix.Loading.remove();
       })
       .addCase(login.rejected, handleRejected)
       .addCase(logout.fulfilled, (state: authIntitialStateType) => {
@@ -75,7 +71,6 @@ const authSlice = createSlice({
         state.user.email = null;
         state.user.id = null;
         state.user.username = null;
-        Notiflix.Loading.remove();
       })
       .addCase(logout.rejected, handleRejected)
       .addCase(
@@ -89,17 +84,14 @@ const authSlice = createSlice({
           state.isLoggedIn = true;
           state.isRefreshing = false;
           state.error = null;
-          Notiflix.Loading.remove();
         }
       )
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
-        Notiflix.Loading.remove();
       })
 
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
-        Notiflix.Loading.remove();
       })
       .addCase(logout.pending, handlePending)
       .addCase(login.pending, handlePending)
@@ -111,7 +103,6 @@ const authSlice = createSlice({
           state.user.thumb = action.payload;
           state.isRefreshing = false;
           state.error = null;
-          Notiflix.Loading.remove();
         }
       )
       .addCase(uploadImage.rejected, handleRejected)
@@ -122,7 +113,6 @@ const authSlice = createSlice({
           state.user.username = action.payload;
           state.isRefreshing = false;
           state.error = null;
-          Notiflix.Loading.remove();
         }
       )
       .addCase(updateUsername.rejected, handleRejected);

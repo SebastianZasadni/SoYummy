@@ -1,7 +1,5 @@
 .recipeBox {
   position: relative;
-  width: 343px;
-  height: 323px;
 }
 .recipeImage {
   border-radius: 8px;
@@ -24,21 +22,11 @@
   left: 18px;
 }
 @media screen and (min-width: 768px) {
-  .recipeBox {
-    width: 336px;
-    height: 323px;
-  }
   .recipeCategorie {
     font-size: 44px;
     line-height: 44px;
   }
   .recipeTitle {
     width: 85%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .recipeBox {
-    width: 300px;
-    height: 323px;
   }
 }
