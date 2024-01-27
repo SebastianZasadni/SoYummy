@@ -30,6 +30,12 @@
   font-size: 18px;
   line-height: 18px;
 }
+.menuListLinkActive {
+  color: var(--main-green);
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 18px;
+}
 .menuListItem:last-child .menuListLink {
   display: flex;
   align-items: center;

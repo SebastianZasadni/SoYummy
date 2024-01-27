@@ -16,34 +16,66 @@ const MenuList = () => {
       <li className={css.menuListItem}>
         <NavLink
           to={`/category/beef/?page=1`}
-          className={css.menuListLink}
+          className={({ isActive }) =>
+            isActive ? `${css.menuListLinkActive}` : `${css.menuListLink}`
+          }
           onClick={handleClick}
         >
           Categories
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/add" className={css.menuListLink} onClick={handleClick}>
+        <NavLink
+          to="/add"
+          className={({ isActive }) =>
+            isActive ? `${css.menuListLinkActive}` : `${css.menuListLink}`
+          }
+          onClick={handleClick}
+        >
           Add recipes
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/my-recipes" className={css.menuListLink} onClick={handleClick}>
+        <NavLink
+          to="/my-recipes"
+          className={({ isActive }) =>
+            isActive ? `${css.menuListLinkActive}` : `${css.menuListLink}`
+          }
+          onClick={handleClick}
+        >
           My recipes
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/favorites" className={css.menuListLink} onClick={handleClick}>
+        <NavLink
+          to="/favorites"
+          className={({ isActive }) =>
+            isActive ? `${css.menuListLinkActive}` : `${css.menuListLink}`
+          }
+          onClick={handleClick}
+        >
           Favorites
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/shopping-list" className={css.menuListLink} onClick={handleClick}>
+        <NavLink
+          to="/shopping-list"
+          className={({ isActive }) =>
+            isActive ? `${css.menuListLinkActive}` : `${css.menuListLink}`
+          }
+          onClick={handleClick}
+        >
           Shopping list
         </NavLink>
       </li>
       <li className={css.menuListItem}>
-        <NavLink to="/search" className={css.menuListLink} onClick={handleClick}>
+        <NavLink
+          to="/search"
+          className={({ isActive }) =>
+            isActive ? `${css.menuListLinkActive}` : `${css.menuListLink}`
+          }
+          onClick={handleClick}
+        >
           <img
             src="/assets/icon-search.png"
             alt="loupe"
