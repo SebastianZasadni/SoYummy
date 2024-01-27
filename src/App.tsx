@@ -7,21 +7,22 @@ import { refreshUser } from "./redux/auth/operations";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
-import WelcomePage from "./pages/WelcomePage/WelcomePage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
-import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
-import RecipePage from "./pages/RecipePage/RecipePage";
-import ShoppingListPage from "./pages/ShoppingListPage/ShoppingListPage";
-import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage";
-import FavoritePage from "./pages/FavoritesPage/FavoritesPage";
-import SearchPage from "./pages/SearchPage/SearchPage";
 
 const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
-// const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
-// const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-// const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
+const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
+const CategoriesPage = lazy(
+  () => import("./pages/CategoriesPage/CategoriesPage")
+);
+const AddRecipePage = lazy(() => import("./pages/AddRecipePage/AddRecipePage"));
+const RecipePage = lazy(() => import("./pages/RecipePage/RecipePage"));
+const ShoppingListPage = lazy(
+  () => import("./pages/ShoppingListPage/ShoppingListPage")
+);
+const MyRecipesPage = lazy(() => import("./pages/MyRecipesPage/MyRecipesPage"));
+const FavoritePage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
+const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 
 const App = () => {
   const dispatch: AppDispatch = useDispatch();
