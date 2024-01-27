@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Joi from "joi";
 import cx from "classnames";
-import css from "./loginForm.module.css";
+import css from "./LoginForm.module.css";
 import { validationCorrect, validationError } from "../../utils/validation";
 import { FormEvent } from "react";
 import { useDispatch } from "react-redux";
