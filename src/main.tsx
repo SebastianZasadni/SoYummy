@@ -6,13 +6,14 @@ import { store, persistor } from "./redux/store.ts";
 import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.tsx";
 import "./index.css";
+import AppWithSuspense from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <AppWithSuspense />
         </BrowserRouter>
       </PersistGate>
     </Provider>

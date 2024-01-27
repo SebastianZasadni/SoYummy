@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { useEffect, lazy } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router";
 import { AppDispatch } from "./redux/store";
@@ -76,4 +76,10 @@ const App = () => {
   );
 };
 
-export default App;
+const AppWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <App />
+  </Suspense>
+);
+
+export default AppWithSuspense;
