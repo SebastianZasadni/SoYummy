@@ -1,7 +1,7 @@
 // middleware/asyncMiddleware.ts
 import Notiflix from "notiflix";
 
-const asyncMiddleware = (store: any) => (next: any) => (action: any) => {
+const asyncMiddleware = () => (next: any) => (action: any) => {
   if (action.type.endsWith("/pending")) {
     Notiflix.Loading.standard("Loading...");
   } else if (action.type.endsWith("/fulfilled")) {

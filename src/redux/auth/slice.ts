@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Notiflix from "notiflix";
 import {
   register,
   login,
