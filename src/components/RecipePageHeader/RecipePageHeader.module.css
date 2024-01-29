@@ -23,7 +23,7 @@
   text-align: center;
   color: var(--secondary-black);
 }
-.addFavoriteButton {
+.favoriteButton {
   padding: 10px 18px;
   border-radius: 24px 44px;
   outline: none;
@@ -31,12 +31,14 @@
   border: 1px solid var(--main-green);
   font-size: 10px;
   line-height: 15px;
+  margin-top: 15px;
 }
 .cookingTimeBox {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 5px;
+  margin-top: 10px;
 }
 .iconClock {
   width: 14px;
@@ -70,7 +72,7 @@
     line-height: 24px;
     width: 506px;
   }
-  .addFavoriteButton {
+  .favoriteButton {
     padding: 18px 44px;
     font-size: 16px;
     line-height: 24px;

@@ -36,7 +36,7 @@ export const RecipePageHeader = () => {
       {isInFavorite(id) ? (
         <button
           type="button"
-          className={css.addFavoriteButton}
+          className={css.favoriteButton}
           onClick={() => handleDelete(_id)}
         >
           Delete
@@ -44,7 +44,7 @@ export const RecipePageHeader = () => {
       ) : (
         <button
           type="button"
-          className={css.addFavoriteButton}
+          className={css.favoriteButton}
           onClick={() => handleAdd(_id)}
         >
           Add
