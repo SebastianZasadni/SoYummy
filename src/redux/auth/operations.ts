@@ -3,6 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Notify } from "notiflix";
 import { CredentialsLogin } from "../../components/LoginForm/LoginForm";
 import { CredentialsRegister } from "../../components/RegisterForm/RegisterForm";
+import { setIsLogoutModal } from "../global/slice";
 
 interface AuthStateType {
   auth: {
@@ -56,6 +57,7 @@ export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
   try {
     await axios.get("/users/logout");
     Notify.success("Logged out successfully.");
+    thunkAPI.dispatch(setIsLogoutModal(false));
     clearAuthHeader();
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.message);
