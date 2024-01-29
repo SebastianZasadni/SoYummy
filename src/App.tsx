@@ -32,7 +32,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Suspense fallback={null}>
       <Routes>
         <Route
           index
@@ -72,14 +72,8 @@ const App = () => {
         </Route>
         <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>
-    </>
+    </Suspense>
   );
 };
 
-const AppWithSuspense = () => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <App />
-  </Suspense>
-);
-
-export default AppWithSuspense;
+export default App;
