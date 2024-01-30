@@ -2,7 +2,7 @@ import { FormEvent, useRef, useState } from "react";
 import { Notify } from "notiflix";
 import axios from "axios";
 import Joi from "joi";
-import { validationCorrect, validationError } from "../../utils/validation";
+import { validationCorrect, validationError } from "../../../../utils/validation";
 import css from "./SubscribeForm.module.css";
 
 const emailSchema = Joi.object({

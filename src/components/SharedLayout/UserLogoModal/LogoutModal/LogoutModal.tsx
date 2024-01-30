@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux/auth/operations";
-import { AppDispatch } from "../../redux/store";
+import { logout } from "../../../../redux/auth/operations";
+import { AppDispatch } from "../../../../redux/store";
 import css from "./LogoutModal.module.css";
-import { setIsLogoutModal } from "../../redux/global/slice";
+import { setIsLogoutModal } from "../../../../redux/global/slice";
 
 export const LogoutModal = () => {
   const dispatch: AppDispatch = useDispatch();

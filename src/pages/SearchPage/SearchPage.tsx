@@ -20,7 +20,7 @@ const SearchPage = () => {
   const error = useSelector(selectError);
   const [searchParams] = useSearchParams();
   const dispatch: AppDispatch = useDispatch();
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const pageCount = recipes && Math.ceil(recipes.length / itemsPerPage);
   const offset = currentPage * itemsPerPage;
   const currentRecipes =
@@ -58,8 +58,8 @@ const SearchPage = () => {
       {currentRecipes && !error ? (
         <ul className={css.recipesList}>
           {currentRecipes.map((recipe) => (
-            <li className={css.recipesListItem} key={recipe._id}>
-              <RecipeItem recipe={recipe} />;
+            <li className={css.recipeListItem} key={recipe._id}>
+              <RecipeItem recipe={recipe} />
             </li>
           ))}
         </ul>

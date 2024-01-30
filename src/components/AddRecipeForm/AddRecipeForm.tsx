@@ -5,8 +5,8 @@ import { AppDispatch } from "../../redux/store";
 import { useState } from "react";
 import { FormEvent } from "react";
 import { addRecipe } from "../../redux/recipes/operations";
-import { RecipeDescriptionField } from "../RecipeDescriptionFields/RecipeDescriptionsFields";
-import { RecipeIngredientsFields } from "../RecipeIngredientsFields/RecipeIngredientsFields";
+import { RecipeDescriptionField } from "./RecipeDescriptionFields/RecipeDescriptionsFields";
+import { RecipeIngredientsFields } from "./RecipeIngredientsFields/RecipeIngredientsFields";
 import { AddRecipeProps } from "../../redux/recipes/operations";
 import css from "./AddRecipeForm.module.css";
 

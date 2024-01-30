@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
-import { selectUser } from "../../redux/auth/selectors";
+import { AppDispatch } from "../../../../redux/store";
+import { selectUser } from "../../../../redux/auth/selectors";
 import css from "./UserLogo.module.css";
-import { setIsUserLogoModal } from "../../redux/global/slice";
+import { setIsUserLogoModal } from "../../../../redux/global/slice";
 
 export const UserLogo = () => {
   const dispatch: AppDispatch = useDispatch();

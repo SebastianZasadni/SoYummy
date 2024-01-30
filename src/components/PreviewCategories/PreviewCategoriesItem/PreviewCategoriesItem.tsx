@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { RecipeItem } from "../RecipeItem/RecipeItem";
-import { Recipe } from "../../redux/recipes/slice";
-import css from "./PreviewCategoriesListItem.module.css";
+import { RecipeItem } from "../../RecipeItem/RecipeItem";
+import { Recipe } from "../../../redux/recipes/slice";
+import css from "./PreviewCategoriesItem.module.css";
 
-export const PreviewCategoriesListItem = ({
+export const PreviewCategoriesItem = ({
   recipes,
 }: {
   recipes: Recipe[];

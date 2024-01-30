@@ -1,7 +1,7 @@
 import axios from "axios";
 import Joi from "joi";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { AppDispatch } from "../../../../redux/store";
 import {
   ChangeEvent,
   FormEvent,
@@ -11,8 +11,8 @@ import {
   KeyboardEvent,
 } from "react";
 import css from "./UserInfoModal.module.css";
-import { setIsUserInfoModal } from "../../redux/global/slice";
-import { updateUsername, uploadImage } from "../../redux/auth/operations";
+import { setIsUserInfoModal } from "../../../../redux/global/slice";
+import { updateUsername, uploadImage } from "../../../../redux/auth/operations";
 import Notiflix from "notiflix";
 
 export const UserInfoModal = () => {

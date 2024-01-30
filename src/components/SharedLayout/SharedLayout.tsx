@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { Suspense } from "react";
 import css from "./SharedLayout.module.css";
-import { Header } from "../Header/Header";
-import { OthersNavigation } from "../Navigation/Navigation";
-import { Footer } from "../Footer/Footer";
+import { Header } from "./Header/Header";
+import { OthersNavigation } from "./Navigation/Navigation";
+import { Footer } from "./Footer/Footer";
 import { useSelector } from "react-redux";
 import {
   selectIsLogoutModal,
@@ -13,10 +13,10 @@ import {
   selectIsUserInfoModal,
   selectIsUserLogoModal,
 } from "../../redux/global/selectors";
-import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
+import { UserLogoModal } from "./UserLogoModal/UserLogoModal";
 import { setIsUserLogoModal } from "../../redux/global/slice";
-import { UserInfoModal } from "../UserInfoModal/UserInfoModal";
-import { LogoutModal } from "../LogoutModal/LogoutModal";
+import { UserInfoModal } from "./UserLogoModal/UserInfoModal/UserInfoModal";
+import { LogoutModal } from "./UserLogoModal/LogoutModal/LogoutModal";
 
 const SharedLayout = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -29,6 +29,7 @@ const SharedLayout = () => {
   };
 
   const isMenuMobile = useSelector(selectIsMenuMobile);
+  
   return isMenuMobile ? (
     <OthersNavigation />
   ) : (

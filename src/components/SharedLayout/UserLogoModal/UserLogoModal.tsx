@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { AppDispatch } from "../../../redux/store";
 import { KeyboardEvent } from "react";
 import { useEffect, useRef } from "react";
 import css from "./UserLogoModal.module.css";
@@ -7,7 +7,7 @@ import {
   setIsLogoutModal,
   setIsUserInfoModal,
   setIsUserLogoModal,
-} from "../../redux/global/slice";
+} from "../../../redux/global/slice";
 
 export const UserLogoModal = () => {
   const dispatch: AppDispatch = useDispatch();

@@ -1,7 +1,7 @@
 import css from "./Footer.module.css";
-import { Nav } from "../Nav/Nav";
-import { SubscribeForm } from "../SubscribeForm/SubscribeForm";
-import { FollowUs } from "../FollowUs/FollowUs";
+import { Nav } from "./Nav/Nav";
+import { FollowUs } from "./FollowUs/FollowUs";
+import { SubscribeForm } from "./SubscribeForm/SubscribeForm";
 
 export const Footer = () => {
   return (

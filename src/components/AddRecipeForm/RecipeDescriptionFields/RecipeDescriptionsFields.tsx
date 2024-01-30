@@ -2,11 +2,11 @@ import { ChangeEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import Select from "react-select";
-import { AppDispatch } from "../../redux/store";
+import { AppDispatch } from "../../../redux/store";
 import css from "./RecipeDescriptionField.module.css";
-import { fetchCategoriesList } from "../../redux/recipes/operations";
-import { selectCategories } from "../../redux/recipes/selectors";
-import { reset } from "../../redux/recipes/slice";
+import { fetchCategoriesList } from "../../../redux/recipes/operations";
+import { selectCategories } from "../../../redux/recipes/selectors";
+import { reset } from "../../../redux/recipes/slice";
 import { selectStyles } from "./selectStyles";
 import { cookingTimesList } from "./data";
 

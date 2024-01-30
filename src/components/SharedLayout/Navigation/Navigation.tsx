@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { Logo } from "../Logo/Logo";
+import { Logo } from "../Header/Logo/Logo";
 import css from "./Navigation.module.css";
-import { setIsMenuMobile } from "../../redux/global/slice";
+import { setIsMenuMobile } from "../../../redux/global/slice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { AppDispatch } from "../../../redux/store";
 
 const MenuList = () => {
   const dispatch: AppDispatch = useDispatch();

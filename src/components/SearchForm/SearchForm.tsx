@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router";
 import { FormEvent } from "react";
-import css from "./SearchFormMainPage.module.css";
+import css from "./SearchForm.module.css";
 
-export const SearchFormMainPage = () => {
+export const SearchForm = () => {
   const navigate = useNavigate();
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;

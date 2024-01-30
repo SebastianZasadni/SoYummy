@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { selectRecipes } from "../../redux/recipes/selectors";
 import { Recipe } from "../../redux/recipes/slice";
 import { NavLink } from "react-router-dom";
-import { PreviewCategoriesListItem } from "../PreviewCategoriesListItem/PreviewCategoriesListItem";
+import { PreviewCategoriesItem } from "./PreviewCategoriesItem/PreviewCategoriesItem";
 import css from "./PreviewCategories.module.css";
 
 export const PreviewCategories = () => {
@@ -47,16 +47,16 @@ export const PreviewCategories = () => {
   return (
     <div className={css.mainRecipesWrapper}>
       <ul className={css.mainPageRecipesList}>
-        <PreviewCategoriesListItem
+        <PreviewCategoriesItem
           recipes={breakfastRecipes.slice(0, visibleRecipes)}
         />
-        <PreviewCategoriesListItem
+        <PreviewCategoriesItem
           recipes={miscellaneousRecipes.slice(0, visibleRecipes)}
         />
-        <PreviewCategoriesListItem
+        <PreviewCategoriesItem
           recipes={chickenRecipes.slice(0, visibleRecipes)}
         />
-        <PreviewCategoriesListItem
+        <PreviewCategoriesItem
           recipes={dessertsRecipes.slice(0, visibleRecipes)}
         />
       </ul>

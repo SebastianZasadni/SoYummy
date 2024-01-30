@@ -1,6 +1,11 @@
 .searchPageWrapper {
   padding: 50px 16px 100px 16px;
 }
+.searchPageHeading {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+}
 .recipesList {
   margin-top: 32px;
   display: flex;
@@ -51,11 +56,21 @@
   font-weight: 500;
 }
 @media screen and (min-width: 768px) {
+  .searchPageWrapper {
+    padding: 50px 32px 100px 32px;
+  }
+  .searchPageHeading {
+    font-size: 32px;
+    line-height: 32px;
+  }
   .recipesList {
-    margin-top: 50px;
-    gap: 32px;
+    display: flex;
+    gap: 16px;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  .recipeListItem {
+    flex-basis: calc((100% - 32px) / 2);
   }
   .searchPageWarningImage {
     width: 350px;
@@ -65,5 +80,17 @@
     font-size: 24px;
     line-height: 24px;
     font-weight: 500;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .searchPageWrapper {
+    padding: 50px 100px 100px 100px;
+  }
+  .searchPageHeading {
+    font-size: 44px;
+    line-height: 44px;
+  }
+  .recipeListItem {
+    flex-basis: calc((100% - 64px) / 4);
   }
 }

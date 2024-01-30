@@ -1,10 +1,10 @@
 import css from "./Header.module.css";
-import { Logo } from "../Logo/Logo";
-import { UserLogo } from "../UserLogo/UserLogo";
+import { Logo } from "./Logo/Logo";
+import { UserLogo } from "./UserLogo/UserLogo";
 import { DesktopNavigation } from "../Navigation/Navigation";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
-import { setIsMenuMobile } from "../../redux/global/slice";
+import { AppDispatch } from "../../../redux/store";
+import { setIsMenuMobile } from "../../../redux/global/slice";
 
 export const Header = () => {
   const dispatch: AppDispatch = useDispatch();

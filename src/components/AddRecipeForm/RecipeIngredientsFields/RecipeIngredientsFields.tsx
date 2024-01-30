@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { AppDispatch } from "../../../redux/store";
 import Select from "react-select";
 import css from "./RecipeIngredientsFields.module.css";
-import { selectIngredients } from "../../redux/recipes/selectors";
-import { fetchIngredientsList } from "../../redux/recipes/operations";
-import { reset } from "../../redux/recipes/slice";
+import { selectIngredients } from "../../../redux/recipes/selectors";
+import { fetchIngredientsList } from "../../../redux/recipes/operations";
+import { reset } from "../../../redux/recipes/slice";
 import { Option } from "../RecipeDescriptionFields/RecipeDescriptionsFields";
 import { measureList } from "./data";
 import { ingredientStyle, measureStyle } from "./selectStyles";
