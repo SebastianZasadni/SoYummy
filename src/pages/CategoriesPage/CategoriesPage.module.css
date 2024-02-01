@@ -30,6 +30,7 @@
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
+  gap: 16px;
   justify-content: center;
 }
 @media screen and (min-width: 768px) {
@@ -46,7 +47,6 @@
   }
   .recipesList {
     margin-top: 50px;
-    gap: 16px;
     flex-direction: row;
     flex-wrap: wrap;
   }
