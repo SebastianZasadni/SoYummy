@@ -12,7 +12,6 @@ interface AuthStateType {
 }
 
 axios.defaults.baseURL = "https://soyummy-api.onrender.com/api/";
-// axios.defaults.baseURL = "http://localhost:3000/api/";
 
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
