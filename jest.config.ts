@@ -4,8 +4,9 @@ export default {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
+  verbose: true,
   moduleNameMapper: {
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/mocks/fileMock.js",
-    "\\.css$": "identity-obj-proxy",
+    "\\.css$": "jest-transform-css",
   },
 };
