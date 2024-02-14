@@ -88,11 +88,13 @@ export const LoginForm = () => {
             src="/assets/icon-error.png"
             className={css.iconError}
             ref={iconErrorEmailRef}
+            alt="error-icon"
           />
           <img
             src="/assets/icon-success.png"
             className={css.iconSuccess}
             ref={iconSuccessEmailRef}
+            alt="success-icon"
           />
           <p ref={validationEmailRef} className={css.validation}>
             {emailValidation}
