@@ -95,7 +95,6 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesMainPage.pending, handlePending)
       .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -103,7 +102,6 @@ const recipesSlice = createSlice({
       .addCase(fetchCategoriesList.pending, handlePending)
       .addCase(fetchCategoriesList.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.categories = action.payload;
       })
@@ -111,7 +109,6 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesByCategory.pending, handlePending)
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -119,7 +116,6 @@ const recipesSlice = createSlice({
       .addCase(fetchIngredientsList.pending, handlePending)
       .addCase(fetchIngredientsList.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.ingredients = action.payload;
       })
@@ -128,7 +124,6 @@ const recipesSlice = createSlice({
       .addCase(addRecipe.pending, handlePending)
       .addCase(addRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes.push(action.payload);
       })
@@ -136,7 +131,6 @@ const recipesSlice = createSlice({
       .addCase(fetchPopularRecipes.pending, handlePending)
       .addCase(fetchPopularRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -144,7 +138,6 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipeById.pending, handlePending)
       .addCase(fetchRecipeById.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipe = action.payload[0];
       })
@@ -152,7 +145,6 @@ const recipesSlice = createSlice({
       .addCase(fetchShopingList.pending, handlePending)
       .addCase(fetchShopingList.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.shoppingList = action.payload;
       })
@@ -160,7 +152,6 @@ const recipesSlice = createSlice({
       .addCase(addIngredientToShoppingList.pending, handlePending)
       .addCase(addIngredientToShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.shoppingList = action.payload;
       })
@@ -168,7 +159,6 @@ const recipesSlice = createSlice({
       .addCase(deleteIngredientFromShoppingList.pending, handlePending)
       .addCase(deleteIngredientFromShoppingList.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.shoppingList = action.payload;
       })
@@ -176,7 +166,6 @@ const recipesSlice = createSlice({
       .addCase(fetchMyRecipes.pending, handlePending)
       .addCase(fetchMyRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -184,7 +173,6 @@ const recipesSlice = createSlice({
       .addCase(deleteRecipe.pending, handlePending)
       .addCase(deleteRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -192,7 +180,6 @@ const recipesSlice = createSlice({
       .addCase(fetchFavoriteRecipes.pending, handlePending)
       .addCase(fetchFavoriteRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -200,7 +187,6 @@ const recipesSlice = createSlice({
       .addCase(addRecipeToFavorites.pending, handlePending)
       .addCase(addRecipeToFavorites.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipe = action.payload;
       })
@@ -208,7 +194,6 @@ const recipesSlice = createSlice({
       .addCase(deleteRecipeFromFavorites.pending, handlePending)
       .addCase(deleteRecipeFromFavorites.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipe = action.payload.updatedRecipe;
         state.recipes = action.payload.allFavoritesRecipes;
@@ -217,7 +202,6 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesByQuery.pending, handlePending)
       .addCase(fetchRecipesByQuery.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       })
@@ -225,7 +209,6 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesByIngredients.pending, handlePending)
       .addCase(fetchRecipesByIngredients.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.error = null;
         state.recipes = action.payload;
       });

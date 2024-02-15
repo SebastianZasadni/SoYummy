@@ -32,7 +32,7 @@ export const RecipesList = ({ recipes, onClick }: RecipesListProps) => {
           const { thumb, title, description, time, _id } = recipe;
           return (
             <li key={_id} className={css.recipesListItem}>
-              <img src={thumb} className={css.recipeImage} />
+              <img src={thumb} className={css.recipeImage} alt={title} />
               <div className={css.recipeDescriptionBox}>
                 <p className={css.recipeTitle}>{title}</p>
                 <p className={css.recipeDescription}>{description}</p>

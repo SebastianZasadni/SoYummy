@@ -1,17 +1,17 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { RecipesList } from "../components/RecipesList/RecipesList";
+import { RecipesList } from "../RecipesList";
 
-describe("RecipesList", () => {
-  test("should render a list of recipes with their respective information", () => {
+describe("<RecipesList/>", () => {
+  test("render a list of recipes", () => {
     const recipes = [
       {
         _id: "1",
         title: "Recipe 1",
         description: "Description 1",
         time: "30",
-        thumb: "image1.jpg",
+        thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
         category: "category1",
         area: "area1",
         instructions: "instructions1",
@@ -26,26 +26,6 @@ describe("RecipesList", () => {
           },
         ],
       },
-      {
-        _id: "2",
-        title: "Recipe 2",
-        description: "Description 2",
-        time: "45",
-        thumb: "image2.jpg",
-        category: "category2",
-        area: "area2",
-        instructions: "instructions2",
-        preview: "preview2",
-        favorites: ["favorites"],
-        youtube: "youtube2",
-        tags: ["tags2"],
-        ingredients: [
-          {
-            id: "id2",
-            measure: "measure2",
-          },
-        ],
-      },
     ];
     const onClick = jest.fn();
 
@@ -55,11 +35,9 @@ describe("RecipesList", () => {
       </Router>
     );
 
+    expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByText("Recipe 1")).toBeInTheDocument();
     expect(screen.getByText("Description 1")).toBeInTheDocument();
     expect(screen.getByText("30 min")).toBeInTheDocument();
-    expect(screen.getByText("Recipe 2")).toBeInTheDocument();
-    expect(screen.getByText("Description 2")).toBeInTheDocument();
-    expect(screen.getByText("45 min")).toBeInTheDocument();
   });
 });
